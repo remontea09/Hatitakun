@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private HatitaController hatitakun;
     [SerializeField] private Goal goal;
     [SerializeField] private GameObject goalPanel;
+    [SerializeField] private PlayerDeath playerDeth;
     public GameObject gameOverUI;
     public static GameManager Instance;
 
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
         goalPanel.SetActive(false);
         goal.onGoal += OnGoal;
+        playerDeth.onGameOver += GameOver;
         Instance = this;
     }
 
