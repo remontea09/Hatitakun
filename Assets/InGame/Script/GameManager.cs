@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Goal goal;
     [SerializeField] private GameObject goalPanel;
     public GameObject gameOverUI;
-    public static GameManager Instance;
 
 
     private void Awake()
@@ -15,7 +14,6 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
         goalPanel.SetActive(false);
         goal.onGoal += OnGoal;
-        Instance = this;
     }
 
 
