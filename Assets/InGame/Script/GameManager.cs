@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Application.targetFrameRate = 60;
         goalPanel.SetActive(false);
         goal.onGoal += OnGoal;
         Instance = this;
