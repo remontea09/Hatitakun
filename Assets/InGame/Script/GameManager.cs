@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Goal goal;
     [SerializeField] private GameObject goalPanel;
     [SerializeField] private PlayerDeath playerDeth;
+    [SerializeField] private PlayerGrowth playerGrowth;
+    [SerializeField] private GoalManager goalManager;
     public GameObject gameOverUI;
 
 
@@ -16,8 +18,9 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
         goalPanel.SetActive(false);
         goal.onGoal += OnGoal;
+        
+         
     }
-
 
     private void OnGoal()
     {
