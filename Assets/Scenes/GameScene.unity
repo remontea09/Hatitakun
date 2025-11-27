@@ -811,6 +811,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5131146615697820581, guid: 9863200694592b24aa22cce8e810cd6f, type: 3}
   m_PrefabInstance: {fileID: 617788719}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &798667798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 798667800}
+  - component: {fileID: 798667799}
+  m_Layer: 0
+  m_Name: RainSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &798667799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798667798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe2793008a4b4547b4f0e64cfe2290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rainPrefab: {fileID: 2008793285078015155, guid: 3c63aa5885a403b478b7b07b2ba8ee13, type: 3}
+  spawnRangeX: 8
+  spawnInterval: 3
+  spawnHeight: 6
+--- !u!4 &798667800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798667798}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 6, z: 0.044271246}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &817241687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,6 +1352,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9863200694592b24aa22cce8e810cd6f, type: 3}
+--- !u!1 &1768317953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1768317954}
+  m_Layer: 3
+  m_Name: menohasseiiti
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1768317954
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768317953}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.55, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2134798524}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1882615821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1647,6 +1726,7 @@ GameObject:
   - component: {fileID: 2134798528}
   - component: {fileID: 2134798529}
   - component: {fileID: 2134798530}
+  - component: {fileID: 2134798531}
   m_Layer: 3
   m_Name: Hatitakun
   m_TagString: Player
@@ -1666,7 +1746,8 @@ Transform:
   m_LocalPosition: {x: -7.05, y: -0.67, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 1768317954}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2134798525
@@ -1814,6 +1895,38 @@ MonoBehaviour:
   hatitaRig: {fileID: 2134798528}
   rightHatita: {fileID: -9088319305764910810, guid: feea2ba937beca74da6d8bec28971b81, type: 3}
   leftHatita: {fileID: -6136802015620864947, guid: 12c5e50c63b0a7a40bc924e8d6106c2f, type: 3}
+--- !u!114 &2134798531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134798523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5e2a89c0575bc48a7d5e9ac952ba62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  moveSpeedByLevel:
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  jumpForceByLevel:
+  - 5
+  - 6
+  - 6.5
+  - 7
+  - 8
+  sproutPrefabs:
+  - {fileID: 0}
+  - {fileID: 3308668273682644594, guid: 6dde28abfbe0f1e4cb4e33a12f4eae87, type: 3}
+  - {fileID: 7947733001924420681, guid: 64ebdd67fd51d35489cf31bf9789d099, type: 3}
+  - {fileID: 3849783142891272700, guid: bf0f72e6ec2865c4e9bd2854de8a49e9, type: 3}
+  - {fileID: 5451591654826488638, guid: 36f2e0d9d6f004b43859e4d96073f303, type: 3}
+  sproutSpawnPoint: {fileID: 1768317954}
 --- !u!1001 &4016200404964773279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1996,3 +2109,4 @@ SceneRoots:
   - {fileID: 192956070}
   - {fileID: 1213503322}
   - {fileID: 817241689}
+  - {fileID: 798667800}
