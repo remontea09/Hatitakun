@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private HatitaController hatitakun;
     [SerializeField] private Goal goal;
     [SerializeField] private GameObject goalPanel;
+    [SerializeField] private PlayerDeath playerDeth;
     public GameObject gameOverUI;
 
 
@@ -25,9 +27,15 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Time.timeScale = 0f;  // ƒQ[ƒ€‚ğ~‚ß‚é
+        Time.timeScale = 0f;  // ã‚²ãƒ¼ãƒ ã‚’æ­¢ã‚ã‚‹
         hatitakun.ChangeIsMove(false);
-        gameOverUI.SetActive(true); // ‰æ–Ê‚ğ•\¦
+        gameOverUI.SetActive(true); // ç”»é¢ã‚’è¡¨ç¤º
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1f; // æ™‚é–“ã‚’å…ƒã«æˆ»ã™
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }
