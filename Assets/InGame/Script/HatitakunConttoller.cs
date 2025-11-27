@@ -14,13 +14,19 @@ public class HatitaController : MonoBehaviour
 
     //ステータス
     private Vector2 moveSpeed = new Vector2(0.1f, 0); //移動速度
-    private float jampPower = 5f; //ジャンプのパワー
+    private float jampPower = 8f; //ジャンプのパワー
 
     //ジャンプ可能か
     private bool isJamp = false;
 
     //移動可能か
     private bool isMove = true;
+
+
+    private void Awake()
+    {
+        hatitaRig.gravityScale = 2f;
+    }
 
 
     //移動
@@ -48,7 +54,6 @@ public class HatitaController : MonoBehaviour
             {
                 if (!isJamp)
                 {
-                    //リファクタ(二段ジャンプ可能)
                     isJamp = true;
                     hatitaRig.AddForce(Vector2.up * jampPower, ForceMode2D.Impulse);
                 }
