@@ -1004,6 +1004,7 @@ GameObject:
   m_Component:
   - component: {fileID: 817241689}
   - component: {fileID: 817241688}
+  - component: {fileID: 817241690}
   m_Layer: 0
   m_Name: BackGround
   m_TagString: Untagged
@@ -1081,6 +1082,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!328 &817241690
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817241687}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 382e97da27e1acd48a4b4c103654edb7, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 3
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_TimeUpdateMode: 2
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
+  m_Url: 
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
 --- !u!4 &823787467 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5131146615697820581, guid: 9863200694592b24aa22cce8e810cd6f, type: 3}
@@ -2663,6 +2698,7 @@ GameObject:
   - component: {fileID: 2134798530}
   - component: {fileID: 2134798531}
   - component: {fileID: 2134798532}
+  - component: {fileID: 2134798533}
   m_Layer: 3
   m_Name: Hatitakun
   m_TagString: Player
@@ -2862,7 +2898,9 @@ MonoBehaviour:
   - {fileID: 7947733001924420681, guid: 64ebdd67fd51d35489cf31bf9789d099, type: 3}
   - {fileID: 3849783142891272700, guid: bf0f72e6ec2865c4e9bd2854de8a49e9, type: 3}
   - {fileID: 5451591654826488638, guid: 36f2e0d9d6f004b43859e4d96073f303, type: 3}
+  - {fileID: 3932801096266345546, guid: c1d03e03c54011847b37c3a9eeba207a, type: 3}
   sproutSpawnPoint: {fileID: 1768317954}
+  explosionPrefab: {fileID: 1376266299273053898, guid: 5c5d3ffa9a5ac05418e2d096c2652705, type: 3}
 --- !u!114 &2134798532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2875,6 +2913,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd5a717b516a0b4a9cc55c864a5d36a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!328 &2134798533
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134798523}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 382e97da27e1acd48a4b4c103654edb7, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 3
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_TimeUpdateMode: 2
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
+  m_Url: 
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
 --- !u!1001 &4016200404964773279
 PrefabInstance:
   m_ObjectHideFlags: 0

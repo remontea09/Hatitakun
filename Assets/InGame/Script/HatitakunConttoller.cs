@@ -12,6 +12,8 @@ public class HatitaController : MonoBehaviour
     [SerializeField] private Sprite rightHatita;
     [SerializeField] private Sprite leftHatita;
 
+    
+
     //ステータス
     private Vector2 moveSpeed = new Vector2(0.1f, 0); //移動速度
     private float jampPower = 5f; //ジャンプのパワー
@@ -26,6 +28,7 @@ public class HatitaController : MonoBehaviour
     //移動
     private void Update()
     {
+        
         if (isMove)
         {
             if (Input.GetKey(KeyCode.LeftArrow))
@@ -64,6 +67,7 @@ public class HatitaController : MonoBehaviour
             isJamp = false;
         }
     }
+    
 
     public void ChangeIsMove(bool b)
     {
