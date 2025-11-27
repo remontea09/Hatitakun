@@ -13,7 +13,7 @@ public class HatitaController : MonoBehaviour
     [SerializeField] private Sprite leftHatita;
 
     //ステータス
-    private Vector2 moveSpeed = new Vector2(0.025f, 0); //移動速度
+    private Vector2 moveSpeed = new Vector2(0.1f, 0); //移動速度
     private float jampPower = 5f; //ジャンプのパワー
 
     //ジャンプ可能か
