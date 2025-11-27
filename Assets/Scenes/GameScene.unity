@@ -1259,6 +1259,7 @@ MonoBehaviour:
   hatitakun: {fileID: 2134798530}
   goal: {fileID: 1702794125}
   goalPanel: {fileID: 145158814}
+  playerDeth: {fileID: 2134798532}
   gameOverUI: {fileID: 2062955995}
 --- !u!4 &1213503322
 Transform:
