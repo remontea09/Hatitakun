@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,6 +30,12 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;  // ƒQ[ƒ€‚ğ~‚ß‚é
         gameOverUI.SetActive(true); // ‰æ–Ê‚ğ•\¦
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1f; // ŠÔ‚ğŒ³‚É–ß‚·
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }
