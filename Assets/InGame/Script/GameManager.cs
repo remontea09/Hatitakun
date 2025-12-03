@@ -8,8 +8,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Goal goal;
     [SerializeField] private GameObject goalPanel;
     [SerializeField] private PlayerDeath playerDeth;
+    [SerializeField] private PlayerGrowth playerGrowth;
+    [SerializeField] private GoalManager goalManager;
     public GameObject gameOverUI;
-    public static GameManager Instance;
 
 
 
@@ -18,26 +19,28 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
         goalPanel.SetActive(false);
         goal.onGoal += OnGoal;
-        playerDeth.onGameOver += GameOver;
-        Instance = this;
+        
+         
     }
-
 
     private void OnGoal()
     {
         goalPanel.SetActive(true);
         hatitakun.ChangeIsMove(false);
+        int level = playerGrowth.CastLevelToInt();
+        goalManager.OnClear(level);
     }
 
     public void GameOver()
     {
-        Time.timeScale = 0f;  // ƒQ[ƒ€‚ğ~‚ß‚é
-        gameOverUI.SetActive(true); // ‰æ–Ê‚ğ•\¦
+        Time.timeScale = 0f;  // ã‚²ãƒ¼ãƒ ã‚’æ­¢ã‚ã‚‹
+        hatitakun.ChangeIsMove(false);
+        gameOverUI.SetActive(true); // ç”»é¢ã‚’è¡¨ç¤º
     }
 
     public void Restart()
     {
-        Time.timeScale = 1f; // ŠÔ‚ğŒ³‚É–ß‚·
+        Time.timeScale = 1f; // æ™‚é–“ã‚’å…ƒã«æˆ»ã™
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

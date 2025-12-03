@@ -120,5 +120,24 @@ public class PlayerGrowth : MonoBehaviour
         }
     }
 
+    public int CastLevelToInt()
+    {
+        switch (currentLevel)
+        {
+            case GrowthLevel.Level1:
+                return 1;
+            case GrowthLevel.Level2:
+                return 2;
+            case GrowthLevel.Level3:
+                return 3;
+            case GrowthLevel.Level4:
+                return 4;
+            case GrowthLevel.Level5:
+                return 5;
+        }
+
+        return 1;
+    }
+
 
 }
