@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class PlayerGrowth : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class PlayerGrowth : MonoBehaviour
 
     [Header("Level6 特殊演出")]
     public GameObject explosionPrefab; // 爆発エフェクト
+
+    public event Action onGameEnd;
 
    
     //private HatitakunConttoller movement;
@@ -67,7 +70,7 @@ public class PlayerGrowth : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         // 3. ゲームオーバー
-        GameManager.Instance.GameOver();
+        onGameEnd?.Invoke();
     }
 
 

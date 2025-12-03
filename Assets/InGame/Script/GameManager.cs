@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
         goalPanel.SetActive(false);
         goal.onGoal += OnGoal;
-        
+        playerGrowth.onGameEnd += GameOver;
          
     }
 
