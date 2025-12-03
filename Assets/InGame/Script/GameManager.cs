@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverUI;
 
 
+
     private void Awake()
     {
         Application.targetFrameRate = 60;
