@@ -1,9 +1,17 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GoalManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI countText;
+    [SerializeField] private Button button;
+
+    private void Awake()
+    {
+        button.onClick.AddListener(() => AppQuit());
+    }
 
     public void OnClear(int score)
     {
@@ -28,5 +36,14 @@ public class GoalManager : MonoBehaviour
                 countText.text = "Miss...";
                 break;
         }
+    }
+
+    private void AppQuit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }

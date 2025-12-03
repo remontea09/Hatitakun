@@ -102,7 +102,7 @@ public class PlayerGrowth : MonoBehaviour
                 return 5;
         }
 
-        return 0;
+        return 1;
     }
 
 

@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     {
         goalPanel.SetActive(true);
         hatitakun.ChangeIsMove(false);
+        int level = playerGrowth.CastLevelToInt();
+        goalManager.OnClear(level);
     }
 
     public void GameOver()
