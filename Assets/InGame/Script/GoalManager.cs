@@ -10,7 +10,7 @@ public class GoalManager : MonoBehaviour
 
     private void Awake()
     {
-        button.onClick.AddListener(() => AppQuit());
+        button.onClick.AddListener(() => SceneManager.LoadScene("TitleScene"));
     }
 
     public void OnClear(int score)
@@ -36,14 +36,5 @@ public class GoalManager : MonoBehaviour
                 countText.text = "Miss...";
                 break;
         }
-    }
-
-    private void AppQuit()
-    {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
     }
 }
