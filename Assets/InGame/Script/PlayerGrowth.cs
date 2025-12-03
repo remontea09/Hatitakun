@@ -21,6 +21,7 @@ public class PlayerGrowth : MonoBehaviour
     [Header("Level6 特殊演出")]
     public GameObject explosionPrefab; // 爆発エフェクト
 
+   
     //private HatitakunConttoller movement;
 
     void Start()
@@ -31,6 +32,9 @@ public class PlayerGrowth : MonoBehaviour
     }
 
     // 雨に当たったときに呼ぶ
+
+   
+
     public void Grow()
     {
         // レベルアップ
@@ -38,6 +42,8 @@ public class PlayerGrowth : MonoBehaviour
         {
             currentLevel++;
             UpdateSprout();
+
+            
         }
 
         // Level6到達時の特別演出
@@ -46,6 +52,9 @@ public class PlayerGrowth : MonoBehaviour
             StartCoroutine(Level6Sequence());
         }
     }
+
+    
+
     IEnumerator Level6Sequence()
     {
         // 1. 爆発エフェクトをプレイヤー位置に生成
