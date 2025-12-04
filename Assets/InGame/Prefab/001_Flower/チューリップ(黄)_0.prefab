@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7947733001924420681
+--- !u!1 &5451591654826488638
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8979772209207876227}
-  - component: {fileID: 6604670969231974032}
+  - component: {fileID: 3172815396839501871}
+  - component: {fileID: 9105191026407279945}
   m_Layer: 0
-  m_Name: "2\u6BB5\u968E_0"
+  m_Name: "\u30C1\u30E5\u30FC\u30EA\u30C3\u30D7(\u9EC4)_0"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8979772209207876227
+--- !u!4 &3172815396839501871
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7947733001924420681}
+  m_GameObject: {fileID: 5451591654826488638}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.72, y: 0.145, z: 0}
-  m_LocalScale: {x: 0.24609941, y: 0.17733124, z: 1}
+  m_LocalPosition: {x: -7.049, y: 0.2049, z: 0}
+  m_LocalScale: {x: 0.24549647, y: 0.18949623, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6604670969231974032
+--- !u!212 &9105191026407279945
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7947733001924420681}
+  m_GameObject: {fileID: 5451591654826488638}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -75,13 +75,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7558853280927074911, guid: a6a6e1463d7f0d04a95bc266d8e467e7, type: 3}
+  m_SortingOrder: 8
+  m_Sprite: {fileID: -8641915104559761251, guid: 4337c955ff3b8194c9e0d13d24bdd42c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.51, y: 5.31}
+  m_Size: {x: 4.03, y: 6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
