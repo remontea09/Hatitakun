@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         goalPanel.SetActive(false);
         goal.onGoal += OnGoal;
         playerGrowth.onGameEnd += GameOver;
-         
+        playerDeth.onGameOver += GameOver; 
     }
 
     private void OnGoal()
