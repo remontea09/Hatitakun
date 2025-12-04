@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerDeath playerDeth;
     [SerializeField] private PlayerGrowth playerGrowth;
     [SerializeField] private GoalManager goalManager;
+    [SerializeField] private GameObject howToPlayButton;
+    [SerializeField] private GameObject pauseButton;
     public GameObject gameOverUI;
 
 
@@ -29,6 +31,8 @@ public class GameManager : MonoBehaviour
         hatitakun.ChangeIsMove(false);
         int level = playerGrowth.CastLevelToInt();
         goalManager.OnClear(level);
+        howToPlayButton.SetActive(false);
+        pauseButton.SetActive(false);
     }
 
     public void GameOver()
@@ -36,6 +40,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;  // ゲームを止める
         hatitakun.ChangeIsMove(false);
         gameOverUI.SetActive(true); // 画面を表示
+        howToPlayButton.SetActive(false);
+        pauseButton.SetActive(false);
     }
 
     public void Restart()

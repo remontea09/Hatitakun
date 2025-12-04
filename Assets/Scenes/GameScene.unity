@@ -2568,6 +2568,8 @@ MonoBehaviour:
   playerDeth: {fileID: 2134798532}
   playerGrowth: {fileID: 2134798531}
   goalManager: {fileID: 145158818}
+  howToPlayButton: {fileID: 1112153953}
+  pauseButton: {fileID: 1982349486}
   gameOverUI: {fileID: 2062955995}
 --- !u!4 &1213503322
 Transform:
