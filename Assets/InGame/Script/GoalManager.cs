@@ -8,6 +8,9 @@ public class GoalManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI countText;
     [SerializeField] private Button button;
 
+    // 追加：雨生成管理
+    [SerializeField] private RainSpawner rainSpawner;
+
     private void Awake()
     {
         button.onClick.AddListener(() => SceneManager.LoadScene("TitleScene"));
@@ -15,6 +18,13 @@ public class GoalManager : MonoBehaviour
 
     public void OnClear(int score)
     {
+        // 雨を止める
+        if (rainSpawner != null)
+        {
+            rainSpawner.StopSpawning();
+        }
+
+        // スコアに応じてテキスト表示
         switch (score)
         {
             case 1:

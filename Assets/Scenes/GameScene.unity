@@ -292,6 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countText: {fileID: 156430186}
   button: {fileID: 1525917776}
+  rainSpawner: {fileID: 798667799}
 --- !u!1 &156430184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,7 +1653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rainPrefab: {fileID: 2008793285078015155, guid: 3c63aa5885a403b478b7b07b2ba8ee13, type: 3}
   spawnRangeX: 30
-  spawnInterval: 0.5
+  spawnInterval: 1
   spawnHeight: 6
 --- !u!4 &798667800
 Transform:
