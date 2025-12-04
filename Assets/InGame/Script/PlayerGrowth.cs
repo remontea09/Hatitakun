@@ -11,81 +11,59 @@ public class PlayerGrowth : MonoBehaviour
     public float[] moveSpeedByLevel = { 3f, 4f, 5f, 6f, 7f };
     public float[] jumpForceByLevel = { 5f, 6f, 6.5f, 7f, 8f };
 
-    [Header("成長ごとのPrefab（Lv1〜Lv5）")]
-    public GameObject[] sproutPrefabs = new GameObject[6]; // 0=Lv1, 1=Lv2, 2=Lv3, 3=Lv4
+    [Header("成長ごとのPrefab（Lv1〜Lv6）")]
+    public GameObject[] sproutPrefabs = new GameObject[6]; // Lv1〜Lv6
 
     [Header("芽の表示位置")]
     public Transform sproutSpawnPoint;
 
     private GameObject currentSprout;
+    private Coroutine blinkCoroutine;
 
     [Header("Level6 特殊演出")]
     public GameObject explosionPrefab; // 爆発エフェクト
+    private bool level6Triggered = false;
 
     public event Action onGameEnd;
 
-   
-    //private HatitakunConttoller movement;
-
     void Start()
     {
-        //movement = GetComponent<HatitakunConttoller>();
-        //ApplyGrowthStats();  // 初期値設定
         UpdateSprout();
     }
 
     // 雨に当たったときに呼ぶ
-
-   
-
     public void Grow()
     {
-        // レベルアップ
+        // レベルアップ（Level6 を超えない）
         if (currentLevel < GrowthLevel.Level6)
         {
             currentLevel++;
             UpdateSprout();
-
-            
         }
 
-        // Level6到達時の特別演出
-        if (currentLevel == GrowthLevel.Level6)
+        // Level6到達時の特別演出（1回だけ）
+        if (currentLevel == GrowthLevel.Level6 && !level6Triggered)
         {
+            level6Triggered = true;
             StartCoroutine(Level6Sequence());
         }
     }
 
-    
-
     IEnumerator Level6Sequence()
     {
-        // 1. 爆発エフェクトをプレイヤー位置に生成
+        // 爆発エフェクト生成
         if (explosionPrefab != null)
         {
             Instantiate(explosionPrefab, sproutSpawnPoint.position, Quaternion.identity);
         }
 
-        // 2. 少し待つ（0.5秒～1秒など）
+        // 少し待つ（2秒）
         yield return new WaitForSeconds(2f);
 
-        // 3. ゲームオーバー
+        // ゲーム終了イベント
         onGameEnd?.Invoke();
     }
 
-
-
-    // 移動速度・ジャンプ力・スプライトの更新
-    //void ApplyGrowthStats()
-    //{
-    //    int lv = (int)currentLevel;
-
-    //    if (movement != null)
-    //    {
-    //        movement.moveSpeed = moveSpeedByLevel[lv];
-    //        movement.jumpForce = jumpForceByLevel[lv];
-    //    }
-    //}
     IEnumerator BlinkAnimation(GameObject obj, int blinkCount = 3, float blinkSpeed = 0.2f)
     {
         SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
@@ -93,54 +71,47 @@ public class PlayerGrowth : MonoBehaviour
 
         for (int i = 0; i < blinkCount; i++)
         {
-            // 非表示
             sr.enabled = false;
             yield return new WaitForSeconds(blinkSpeed);
-
-            // 表示
             sr.enabled = true;
             yield return new WaitForSeconds(blinkSpeed);
         }
     }
+
     void UpdateSprout()
     {
-        // すでにある芽を削除
+        // 前のコルーチンを停止
+        if (blinkCoroutine != null)
+        {
+            StopCoroutine(blinkCoroutine);
+            blinkCoroutine = null;
+        }
+
+        // 前のスプラウトを削除
         if (currentSprout != null)
         {
             Destroy(currentSprout);
         }
 
-        // 今のレベルに対応するPrefabを取得
         int lv = (int)currentLevel;
-        GameObject prefab = sproutPrefabs[lv];
 
-        if (prefab != null)
+        // 配列の範囲チェック
+        if (lv >= 0 && lv < sproutPrefabs.Length)
         {
-            currentSprout = Instantiate(prefab, sproutSpawnPoint.position, Quaternion.identity);
-            currentSprout.transform.SetParent(sproutSpawnPoint);
+            GameObject prefab = sproutPrefabs[lv];
+            if (prefab != null)
+            {
+                currentSprout = Instantiate(prefab, sproutSpawnPoint.position, Quaternion.identity);
+                currentSprout.transform.SetParent(sproutSpawnPoint);
 
-            StartCoroutine(BlinkAnimation(currentSprout, 3, 0.2f));
+                // BlinkAnimation を開始
+                blinkCoroutine = StartCoroutine(BlinkAnimation(currentSprout, 3, 0.2f));
+            }
         }
     }
 
     public int CastLevelToInt()
     {
-        switch (currentLevel)
-        {
-            case GrowthLevel.Level1:
-                return 1;
-            case GrowthLevel.Level2:
-                return 2;
-            case GrowthLevel.Level3:
-                return 3;
-            case GrowthLevel.Level4:
-                return 4;
-            case GrowthLevel.Level5:
-                return 5;
-        }
-
-        return 1;
+        return Mathf.Clamp((int)currentLevel + 1, 1, 6); // Level1=1, Level6=6
     }
-
-
 }
