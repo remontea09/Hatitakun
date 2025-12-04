@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic; // Listを使うため
 
 public class RainSpawner : MonoBehaviour
 {
@@ -15,9 +16,15 @@ public class RainSpawner : MonoBehaviour
     public float spawnHeight = 6f;
 
     private float timer = 0f;
+    private bool isSpawning = true;
+
+    // 生成した雨を管理するリスト
+    private List<GameObject> rainList = new List<GameObject>();
 
     void Update()
     {
+        if (!isSpawning) return;
+
         timer += Time.deltaTime;
 
         if (timer >= spawnInterval)
@@ -29,13 +36,26 @@ public class RainSpawner : MonoBehaviour
 
     void SpawnRain()
     {
-        // ランダムなX位置
         float randomX = Random.Range(-spawnRangeX, spawnRangeX);
-
-        // 生成位置
         Vector3 spawnPos = new Vector3(randomX, spawnHeight, 0);
+        GameObject rain = Instantiate(rainPrefab, spawnPos, Quaternion.identity);
 
-        // 雨Prefab生成
-        Instantiate(rainPrefab, spawnPos, Quaternion.identity);
+        // 生成した雨をリストに追加
+        rainList.Add(rain);
+    }
+
+    // 雨の生成を止める + すでにある雨も削除
+    public void StopSpawning()
+    {
+        isSpawning = false;
+
+        // すでに生成されている雨を全部削除
+        foreach (GameObject rain in rainList)
+        {
+            if (rain != null) Destroy(rain);
+        }
+
+        // リストもクリア
+        rainList.Clear();
     }
 }
