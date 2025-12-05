@@ -12,19 +12,29 @@ public class PlayerGrowth : MonoBehaviour
     public float[] jumpForceByLevel = { 5f, 6f, 6.5f, 7f, 8f };
 
     [Header("成長ごとのPrefab（Lv1〜Lv6）")]
-    public GameObject[] sproutPrefabs = new GameObject[6]; // Lv1〜Lv6
+    public GameObject[] sproutPrefabs = new GameObject[6];
 
     [Header("芽の表示位置")]
     public Transform sproutSpawnPoint;
 
-    private GameObject currentSprout;
-    private Coroutine blinkCoroutine;
+    [Header("プレイヤー画像（Lv6用：左右）")]
+    public SpriteRenderer playerRenderer;
+    public Sprite level6SpriteRight;   // 右向き
+    public Sprite level6SpriteLeft;    // 左向き
 
-    [Header("Level6 特殊演出")]
-    public GameObject explosionPrefab; // 爆発エフェクト
-    private bool level6Triggered = false;
+    [Header("成長時の効果音")]
+    public AudioSource audioSource;
+    public AudioClip growSE;
+    public AudioClip level6SE;
 
     public event Action onGameEnd;
+
+    private GameObject currentSprout;
+    private Coroutine blinkCoroutine;
+    private bool gameOverTriggered = false;
+
+    // プレイヤーの向き（外部の移動スクリプトから更新するのがベスト）
+    public bool isFacingRight = true;
 
     void Start()
     {
@@ -34,34 +44,68 @@ public class PlayerGrowth : MonoBehaviour
     // 雨に当たったときに呼ぶ
     public void Grow()
     {
-        // レベルアップ（Level6 を超えない）
         if (currentLevel < GrowthLevel.Level6)
         {
             currentLevel++;
             UpdateSprout();
-        }
+            UpdatePlayerSpriteForLevel6();
+            PlayGrowSE();
 
-        // Level6到達時の特別演出（1回だけ）
-        if (currentLevel == GrowthLevel.Level6 && !level6Triggered)
-        {
-            level6Triggered = true;
-            StartCoroutine(Level6Sequence());
+            if (currentLevel == GrowthLevel.Level6 && !gameOverTriggered)
+            {
+                StartCoroutine(Level6GameOverSequence());
+            }
         }
     }
 
-    IEnumerator Level6Sequence()
+    /// <summary>
+    /// Lv6時にだけプレイヤー画像を左右向きに応じて変更
+    /// </summary>
+    void UpdatePlayerSpriteForLevel6()
     {
-        // 爆発エフェクト生成
-        if (explosionPrefab != null)
+        if (currentLevel != GrowthLevel.Level6) return;
+
+        if (playerRenderer == null) return;
+
+        if (isFacingRight)
         {
-            Instantiate(explosionPrefab, sproutSpawnPoint.position, Quaternion.identity);
+            if (level6SpriteRight != null)
+                playerRenderer.sprite = level6SpriteRight;
         }
+        else
+        {
+            if (level6SpriteLeft != null)
+                playerRenderer.sprite = level6SpriteLeft;
+        }
+    }
 
-        // 少し待つ（2秒）
-        yield return new WaitForSeconds(2f);
+    /// <summary>
+    /// Lv6専用SE → 終わってからゲームオーバー
+    /// </summary>
+    IEnumerator Level6GameOverSequence()
+    {
+        gameOverTriggered = true;
 
-        // ゲーム終了イベント
+        float waitTime = (level6SE != null) ? level6SE.length : 0f;
+        yield return new WaitForSeconds(waitTime);
+
         onGameEnd?.Invoke();
+    }
+
+    void PlayGrowSE()
+    {
+        if (audioSource == null) return;
+
+        if (currentLevel == GrowthLevel.Level6)
+        {
+            if (level6SE != null)
+                audioSource.PlayOneShot(level6SE);
+        }
+        else
+        {
+            if (growSE != null)
+                audioSource.PlayOneShot(growSE);
+        }
     }
 
     IEnumerator BlinkAnimation(GameObject obj, int blinkCount = 3, float blinkSpeed = 0.2f)
@@ -80,14 +124,12 @@ public class PlayerGrowth : MonoBehaviour
 
     void UpdateSprout()
     {
-        // 前のコルーチンを停止
         if (blinkCoroutine != null)
         {
             StopCoroutine(blinkCoroutine);
             blinkCoroutine = null;
         }
 
-        // 前のスプラウトを削除
         if (currentSprout != null)
         {
             Destroy(currentSprout);
@@ -95,7 +137,6 @@ public class PlayerGrowth : MonoBehaviour
 
         int lv = (int)currentLevel;
 
-        // 配列の範囲チェック
         if (lv >= 0 && lv < sproutPrefabs.Length)
         {
             GameObject prefab = sproutPrefabs[lv];
@@ -104,7 +145,6 @@ public class PlayerGrowth : MonoBehaviour
                 currentSprout = Instantiate(prefab, sproutSpawnPoint.position, Quaternion.identity);
                 currentSprout.transform.SetParent(sproutSpawnPoint);
 
-                // BlinkAnimation を開始
                 blinkCoroutine = StartCoroutine(BlinkAnimation(currentSprout, 3, 0.2f));
             }
         }
@@ -112,6 +152,6 @@ public class PlayerGrowth : MonoBehaviour
 
     public int CastLevelToInt()
     {
-        return Mathf.Clamp((int)currentLevel + 1, 1, 6); // Level1=1, Level6=6
+        return Mathf.Clamp((int)currentLevel + 1, 1, 6);
     }
 }
