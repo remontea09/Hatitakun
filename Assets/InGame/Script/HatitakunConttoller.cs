@@ -12,9 +12,11 @@ public class HatitaController : MonoBehaviour
     [SerializeField] private Sprite rightHatita;
     [SerializeField] private Sprite leftHatita;
 
+    
+
     //ステータス
-    private Vector2 moveSpeed = new Vector2(0.025f, 0); //移動速度
-    private float jampPower = 5f; //ジャンプのパワー
+    private Vector2 moveSpeed = new Vector2(0.1f, 0); //移動速度
+    private float jampPower = 8f; //ジャンプのパワー
 
     //ジャンプ可能か
     private bool isJamp = false;
@@ -23,9 +25,16 @@ public class HatitaController : MonoBehaviour
     private bool isMove = true;
 
 
+    private void Awake()
+    {
+        hatitaRig.gravityScale = 2f;
+    }
+
+
     //移動
     private void Update()
     {
+        
         if (isMove)
         {
             if (Input.GetKey(KeyCode.LeftArrow))
@@ -48,7 +57,6 @@ public class HatitaController : MonoBehaviour
             {
                 if (!isJamp)
                 {
-                    //リファクタ(二段ジャンプ可能)
                     isJamp = true;
                     hatitaRig.AddForce(Vector2.up * jampPower, ForceMode2D.Impulse);
                 }
@@ -64,6 +72,7 @@ public class HatitaController : MonoBehaviour
             isJamp = false;
         }
     }
+    
 
     public void ChangeIsMove(bool b)
     {
