@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class ChangeImage : MonoBehaviour
@@ -12,6 +13,22 @@ public class ChangeImage : MonoBehaviour
         if (index >= 0 && index < sprites.Length)
         {
             targetImage.sprite = sprites[index];
+            SkinTypeSelect(index);
         }
+    }
+
+    private void SkinTypeSelect(int index)
+    {
+        SkinType type = index switch
+        {
+            0 => SkinType.normal,
+            2 => SkinType.angel,
+            3 => SkinType.devil,
+            4 => SkinType.cat,
+            5 => SkinType.hero,
+            _ => SkinType.normal,
+        };
+
+        SkinService.Instance.SetSkin(type);
     }
 }
