@@ -1691,10 +1691,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rainPrefab: {fileID: 2008793285078015155, guid: 3c63aa5885a403b478b7b07b2ba8ee13, type: 3}
-  spawnRangeX: 30
+  spawnRangeX: 4
   spawnInterval: 0.8
-  spawnHeight: 6
-  player: {fileID: 0}
+  spawnHeight: 10
+  player: {fileID: 2134798524}
 --- !u!4 &798667800
 Transform:
   m_ObjectHideFlags: 0
@@ -2182,7 +2182,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &922943106
 RectTransform:
@@ -3872,7 +3872,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &1713954979
 RectTransform:
@@ -4577,7 +4577,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &2062955999
 RectTransform:
@@ -4680,7 +4680,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &2065702147
 RectTransform:
@@ -5179,7 +5179,7 @@ MonoBehaviour:
   - {fileID: 3308668273682644594, guid: 6dde28abfbe0f1e4cb4e33a12f4eae87, type: 3}
   - {fileID: 7947733001924420681, guid: 64ebdd67fd51d35489cf31bf9789d099, type: 3}
   - {fileID: 3849783142891272700, guid: bf0f72e6ec2865c4e9bd2854de8a49e9, type: 3}
-  - {fileID: 9074100492689269944, guid: 1f5312fd79524f24bb9cc65557c8cc1b, type: 3}
+  - {fileID: 6264799720472962788, guid: 55f837f6be2081141b2cc1de75ae8249, type: 3}
   - {fileID: 3932801096266345546, guid: c1d03e03c54011847b37c3a9eeba207a, type: 3}
   sproutSpawnPoint: {fileID: 1768317954}
   playerRenderer: {fileID: 2134798525}
@@ -5471,6 +5471,10 @@ PrefabInstance:
     - target: {fileID: 6132426531860008652, guid: 73ab32b3d7937b14ba945a3c7c57c756, type: 3}
       propertyPath: m_Name
       value: "\u30B4\u30FC\u30EB(\u4EEE)_0"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587485119176479583, guid: 73ab32b3d7937b14ba945a3c7c57c756, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8159749674840439294, guid: 73ab32b3d7937b14ba945a3c7c57c756, type: 3}
       propertyPath: m_LocalPosition.x
