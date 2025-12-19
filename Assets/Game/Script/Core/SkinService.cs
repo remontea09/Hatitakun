@@ -14,16 +14,16 @@ public enum SkinType
 public class SkinService : MonoBehaviour
 {
 
-    [SerializeField] private SpriteRenderer nomalRight;
-    [SerializeField] private SpriteRenderer nomalLeft;
-    [SerializeField] private SpriteRenderer angelRight;
-    [SerializeField] private SpriteRenderer angelLeft;
-    [SerializeField] private SpriteRenderer devilRight;
-    [SerializeField] private SpriteRenderer devilLeft;
-    [SerializeField] private SpriteRenderer catRight;
-    [SerializeField] private SpriteRenderer catLeft;
-    [SerializeField] private SpriteRenderer heroRight;
-    [SerializeField] private SpriteRenderer heroLeft;
+    [SerializeField] private Sprite nomalRight;
+    [SerializeField] private Sprite nomalLeft;
+    [SerializeField] private Sprite angelRight;
+    [SerializeField] private Sprite angelLeft;
+    [SerializeField] private Sprite devilRight;
+    [SerializeField] private Sprite devilLeft;
+    [SerializeField] private Sprite catRight;
+    [SerializeField] private Sprite catLeft;
+    [SerializeField] private Sprite heroRight;
+    [SerializeField] private Sprite heroLeft;
 
     public static SkinService Instance { get; private set; }
 
@@ -45,8 +45,39 @@ public class SkinService : MonoBehaviour
             DontDestroyOnLoad(gameObject);
     }
 
-    public void SetSkin(SkinType skin)
+    public void SetSkinType(SkinType skin)
     {
         skinType = skin;
+    }
+
+    public void SetSkin(Sprite rightsp, Sprite leftsp)
+    {
+        switch (skinType)
+        {
+            case SkinType.normal:
+                rightsp = nomalRight;
+                leftsp = nomalLeft;
+                break;
+            case SkinType.angel:
+                rightsp = angelRight;
+                leftsp = angelLeft;
+                break;
+            case SkinType.devil:
+                rightsp = devilRight;
+                leftsp = devilLeft;
+                break;
+            case SkinType.cat:
+                rightsp = devilRight;
+                leftsp = devilLeft;
+                break;
+            case SkinType.hero:
+                rightsp = heroRight;
+                leftsp = heroLeft;
+                break;
+            default:
+                rightsp = nomalRight;
+                leftsp = nomalLeft;
+                break;
+        }
     }
 }

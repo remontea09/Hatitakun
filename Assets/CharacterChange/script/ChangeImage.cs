@@ -1,11 +1,19 @@
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ChangeImage : MonoBehaviour
 {
     public Image targetImage;      // 左の枠の Image
     public Sprite[] sprites;       // 切り替える画像たち（4枚）
+
+    [SerializeField] private Button backButton;
+
+    private void Awake()
+    {
+        backButton.onClick.AddListener(() => SceneManager.LoadScene("HomeScene"));
+    }
 
     // ボタンからこの関数に index を送る
     public void ChangeSprite(int index)
@@ -29,6 +37,6 @@ public class ChangeImage : MonoBehaviour
             _ => SkinType.normal,
         };
 
-        SkinService.Instance.SetSkin(type);
+        SkinService.Instance.SetSkinType(type);
     }
 }

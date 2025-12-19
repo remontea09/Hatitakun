@@ -9,6 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScene.unity
     guid: 01bc233a9c47747449a0bcfcfd1ba4e3
   - enabled: 1
+    path: Assets/Scenes/HomeScene.unity
+    guid: 92fb79fdad66f8f479eedb2a7e142612
+  - enabled: 1
+    path: Assets/Scenes/CharacterChange.unity
+    guid: 8de8f8c674003364bbbf631fe8a7884f
+  - enabled: 1
+    path: Assets/Scenes/StageSelectScene.unity
+    guid: 2389b5f3911f24344858f14005328041
+  - enabled: 1
     path: Assets/Scenes/GameScene1.unity
     guid: 6336ebb30a061274d88bce6072e7b8e9
   m_configObjects:

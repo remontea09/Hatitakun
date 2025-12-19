@@ -28,6 +28,7 @@ public class HatitaController : MonoBehaviour
     private void Awake()
     {
         hatitaRig.gravityScale = 2f;
+        SkinService.Instance.SetSkin(rightHatita, leftHatita);
     }
 
 
