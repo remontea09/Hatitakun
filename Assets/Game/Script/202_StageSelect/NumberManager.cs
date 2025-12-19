@@ -9,8 +9,8 @@ public class NumberManager : MonoBehaviour
     //シーンを切り替えるには手動で書いてください
     //ステージは1ステージ10個の想定
 
-    [SerializeField] private int stage = 10; //ステージの個数を決める、10まで入力可能
-    [SerializeField] private static int Number = 1; //現在のステージを決める Number - 1
+    [SerializeField] private int stage = 10; //ステージの個数を決める、10まで入力可能、11以上は入力するな
+    [SerializeField] private  int Number = 1; //現在のステージを決める Number - 1
 
     [SerializeField] private TextMeshProUGUI[] StageN = default; // 文字を入れるやつ
     [SerializeField] private GameObject[] stageButton = default; // ステージ選択ボタンの配列
