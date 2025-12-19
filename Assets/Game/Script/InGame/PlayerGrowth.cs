@@ -42,6 +42,8 @@ public class PlayerGrowth : MonoBehaviour
     // プレイヤーの向き（外部の移動スクリプトから更新するのがベスト）
     public bool isFacingRight = true;
 
+    [SerializeField] private AudioSource bgmSource;
+
     void Start()
     {
         UpdateSprout();
@@ -92,11 +94,18 @@ public class PlayerGrowth : MonoBehaviour
     {
         gameOverTriggered = true;
 
+        // BGMを止める
+        if (bgmSource != null)
+        {
+            bgmSource.Stop();
+        }
+
         float waitTime = (level6SE != null) ? level6SE.length : 0f;
         yield return new WaitForSeconds(waitTime);
 
         onGameEnd?.Invoke();
     }
+
 
     void PlayGrowSE()
     {

@@ -147,8 +147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163ab1c8d9e029b448e114bf2ff0ed2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  se: {fileID: 8300000, guid: 198d8587a8e474b49b02479116d1ae37, type: 3}
   moveSpeed: 3
   flyUpSpeed: 5
-  attackRange: 6
+  chaseStartDistance: 6
+  chaseEndDistance: 8
   floatAmplitude: 0.3
   floatSpeed: 2
+  goal: {fileID: 0}

@@ -881,6 +881,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2023568496838385445, guid: be02b59a7cbd0ff4b80e55bbcedf4c8c, type: 3}
+      propertyPath: goal
+      value: 
+      objectReference: {fileID: 867358619}
     - target: {fileID: 2326311330363708779, guid: be02b59a7cbd0ff4b80e55bbcedf4c8c, type: 3}
       propertyPath: m_Name
       value: "\u30CF\u30C1_0 (3)"
@@ -5060,6 +5064,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2023568496838385445, guid: be02b59a7cbd0ff4b80e55bbcedf4c8c, type: 3}
+      propertyPath: goal
+      value: 
+      objectReference: {fileID: 867358619}
     - target: {fileID: 2326311330363708779, guid: be02b59a7cbd0ff4b80e55bbcedf4c8c, type: 3}
       propertyPath: m_Name
       value: "\u30CF\u30C1_0 (4)"
@@ -6545,6 +6553,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2023568496838385445, guid: be02b59a7cbd0ff4b80e55bbcedf4c8c, type: 3}
+      propertyPath: goal
+      value: 
+      objectReference: {fileID: 867358619}
     - target: {fileID: 2326311330363708779, guid: be02b59a7cbd0ff4b80e55bbcedf4c8c, type: 3}
       propertyPath: m_Name
       value: "\u30CF\u30C1_0 (2)"
@@ -6675,6 +6687,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2023568496838385445, guid: be02b59a7cbd0ff4b80e55bbcedf4c8c, type: 3}
+      propertyPath: goal
+      value: 
+      objectReference: {fileID: 867358619}
     - target: {fileID: 2326311330363708779, guid: be02b59a7cbd0ff4b80e55bbcedf4c8c, type: 3}
       propertyPath: m_Name
       value: "\u30CF\u30C1_0 (1)"
@@ -7540,6 +7556,7 @@ MonoBehaviour:
   damageBlinkDuration: 1
   damageBlinkInterval: 0.1
   isFacingRight: 1
+  bgmSource: {fileID: 890155966}
 --- !u!114 &2134798532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7694,6 +7711,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2023568496838385445, guid: be02b59a7cbd0ff4b80e55bbcedf4c8c, type: 3}
+      propertyPath: goal
+      value: 
+      objectReference: {fileID: 867358619}
     - target: {fileID: 2326311330363708779, guid: be02b59a7cbd0ff4b80e55bbcedf4c8c, type: 3}
       propertyPath: m_Name
       value: "\u30CF\u30C1_0"
