@@ -30,10 +30,10 @@ public class ChangeImage : MonoBehaviour
         SkinType type = index switch
         {
             0 => SkinType.normal,
-            2 => SkinType.angel,
-            3 => SkinType.devil,
-            4 => SkinType.cat,
-            5 => SkinType.hero,
+            1 => SkinType.angel,
+            2=> SkinType.devil,
+            3 => SkinType.cat,
+            4 => SkinType.hero,
             _ => SkinType.normal,
         };
 

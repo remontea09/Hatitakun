@@ -50,34 +50,17 @@ public class SkinService : MonoBehaviour
         skinType = skin;
     }
 
-    public void SetSkin(Sprite rightsp, Sprite leftsp)
+    public void GetSkinSprites(out Sprite right, out Sprite left)
     {
         switch (skinType)
         {
-            case SkinType.normal:
-                rightsp = nomalRight;
-                leftsp = nomalLeft;
-                break;
-            case SkinType.angel:
-                rightsp = angelRight;
-                leftsp = angelLeft;
-                break;
-            case SkinType.devil:
-                rightsp = devilRight;
-                leftsp = devilLeft;
-                break;
-            case SkinType.cat:
-                rightsp = devilRight;
-                leftsp = devilLeft;
-                break;
-            case SkinType.hero:
-                rightsp = heroRight;
-                leftsp = heroLeft;
-                break;
-            default:
-                rightsp = nomalRight;
-                leftsp = nomalLeft;
-                break;
+            case SkinType.normal: right = nomalRight; left = nomalLeft; break;
+            case SkinType.angel: right = angelRight; left = angelLeft; break;
+            case SkinType.devil: right = devilRight; left = devilLeft; break;
+            case SkinType.cat: right = catRight; left = catLeft; break;
+            case SkinType.hero: right = heroRight; left = heroLeft; break;
+            default: right = nomalRight; left = nomalLeft; break;
         }
     }
+
 }
