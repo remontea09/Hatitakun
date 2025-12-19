@@ -9,12 +9,12 @@ public class StageManager : MonoBehaviour
     [SerializeField] private GameObject LeftButton;
     [SerializeField] private GameObject RightButton;
     [SerializeField] private int StagePanel = 1;//最初に表示するステージのページ
-    [SerializeField] private TextMeshProUGUI stageN;//は矢印で増減
+    [SerializeField] private TextMeshProUGUI stageN;//は矢印で増減する 文字
 
 
     [SerializeField] private GameObject NumberPanel1;//コピーして入れたいステージを増やす
 
-    [SerializeField] private Button Dest;
+    [SerializeField] private Button Dest;//消えるか確認用：終わったら消す
 
     //int Num = NumberManager.Number;
 
@@ -26,36 +26,33 @@ public class StageManager : MonoBehaviour
             LeftButton.SetActive(false);
         }
 
-        Left.onClick.AddListener(StageC);
-        Right.onClick.AddListener(StageC);
+        Left.onClick.AddListener(StageL);
+        Right.onClick.AddListener(StageR);
 
 
 
-        Dest.onClick.AddListener(Desty);
+        Dest.onClick.AddListener(Desty);//消えるか確認用：終わったら消す
 
 
     }
 
-    private void StageC()
+    private void StageL()
+    {
+
+    }
+    private void StageR()
     {
 
     }
 
-    private void Desty()
+    private void Desty()//消えるか確認用：終わったら消す
     {
         NumberPanel1.SetActive(false);
 
 
-
     }
 
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
 
 //stageの切り替え機能を作る
