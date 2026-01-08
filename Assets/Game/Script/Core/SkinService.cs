@@ -1,0 +1,66 @@
+using UnityEngine;
+
+
+public enum SkinType
+{
+    normal,
+    angel,
+    devil,
+    cat,
+    hero
+}
+
+
+public class SkinService : MonoBehaviour
+{
+
+    [SerializeField] private Sprite nomalRight;
+    [SerializeField] private Sprite nomalLeft;
+    [SerializeField] private Sprite angelRight;
+    [SerializeField] private Sprite angelLeft;
+    [SerializeField] private Sprite devilRight;
+    [SerializeField] private Sprite devilLeft;
+    [SerializeField] private Sprite catRight;
+    [SerializeField] private Sprite catLeft;
+    [SerializeField] private Sprite heroRight;
+    [SerializeField] private Sprite heroLeft;
+
+    public static SkinService Instance { get; private set; }
+
+    [SerializeField] private bool dontDestroyOnLoad = true;
+
+    public SkinType skinType { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
+        if (dontDestroyOnLoad)
+            DontDestroyOnLoad(gameObject);
+    }
+
+    public void SetSkinType(SkinType skin)
+    {
+        skinType = skin;
+    }
+
+    public void GetSkinSprites(out Sprite right, out Sprite left)
+    {
+        switch (skinType)
+        {
+            case SkinType.normal: right = nomalRight; left = nomalLeft; break;
+            case SkinType.angel: right = angelRight; left = angelLeft; break;
+            case SkinType.devil: right = devilRight; left = devilLeft; break;
+            case SkinType.cat: right = catRight; left = catLeft; break;
+            case SkinType.hero: right = heroRight; left = heroLeft; break;
+            default: right = nomalRight; left = nomalLeft; break;
+        }
+    }
+
+}
