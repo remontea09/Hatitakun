@@ -27,6 +27,12 @@ public class PlayerGrowth : MonoBehaviour
     public AudioClip growSE;
     public AudioClip level6SE;
 
+    [Header("ダメージ時点滅")]
+    public float damageBlinkDuration = 1.0f;
+    public float damageBlinkInterval = 0.1f;
+
+    private Coroutine playerBlinkCoroutine;
+
     public event Action onGameEnd;
 
     private GameObject currentSprout;
@@ -35,6 +41,8 @@ public class PlayerGrowth : MonoBehaviour
 
     // プレイヤーの向き（外部の移動スクリプトから更新するのがベスト）
     public bool isFacingRight = true;
+
+    [SerializeField] private AudioSource bgmSource;
 
     void Start()
     {
@@ -86,11 +94,18 @@ public class PlayerGrowth : MonoBehaviour
     {
         gameOverTriggered = true;
 
+        // BGMを止める
+        if (bgmSource != null)
+        {
+            bgmSource.Stop();
+        }
+
         float waitTime = (level6SE != null) ? level6SE.length : 0f;
         yield return new WaitForSeconds(waitTime);
 
         onGameEnd?.Invoke();
     }
+
 
     void PlayGrowSE()
     {
@@ -153,5 +168,33 @@ public class PlayerGrowth : MonoBehaviour
     public int CastLevelToInt()
     {
         return Mathf.Clamp((int)currentLevel + 1, 1, 6);
+    }
+
+    public void BlinkPlayer()
+    {
+        if (playerRenderer == null) return;
+
+        if (playerBlinkCoroutine != null)
+            StopCoroutine(playerBlinkCoroutine);
+
+        playerBlinkCoroutine = StartCoroutine(PlayerBlinkCoroutine());
+    }
+
+    IEnumerator PlayerBlinkCoroutine()
+    {
+        float timer = 0f;
+
+        while (timer < damageBlinkDuration)
+        {
+            playerRenderer.enabled = false;
+            yield return new WaitForSeconds(damageBlinkInterval);
+
+            playerRenderer.enabled = true;
+            yield return new WaitForSeconds(damageBlinkInterval);
+
+            timer += damageBlinkInterval * 2f;
+        }
+
+        playerRenderer.enabled = true;
     }
 }
