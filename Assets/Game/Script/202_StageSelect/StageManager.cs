@@ -9,69 +9,75 @@ public class StageManager : MonoBehaviour
     [SerializeField] private GameObject LeftButton;
     [SerializeField] private GameObject RightButton;
 
-    [SerializeField] private int StagePanel = 1;//最初に表示するステージのページ
-    [SerializeField] private TextMeshProUGUI stageN;//は矢印で増減する 文字
+    [SerializeField] private int StagePanel;//最初に表示するステージのページ・1からNまで入力
+    [SerializeField] private static int SPF = 1;//最初のステージのページ
 
+    [SerializeField] private TextMeshProUGUI stageN;//矢印で増減する文字
 
     [SerializeField] private GameObject[] NumberPanel;//入れたいステージを増やす
-
-
-    [SerializeField] private Button Dest;//消えるか確認用：終わったら消す
-    [SerializeField] private Button Miru1;//消えるか確認用：終わったら消す
-    [SerializeField] private Button Miru2;//消えるか確認用：終わったら消す
-
-
-    //int Num = NumberManager.Number;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //StagePanel = 2;
         //矢印を消す
-        if (StagePanel == 1)
+        if (StagePanel == SPF)
         {
             LeftButton.SetActive(false);
         }
+        else if(StagePanel == NumberPanel.Length)
+        {
+            RightButton.SetActive(false);
+        }
+
+        //現在のステージ・増えたら変更
+        stageN.text = StagePanel + "/" + NumberPanel.Length;
+        //最初に表示するステージのページ
+        NumberPanel[StagePanel-1].SetActive(true);
 
         Left.onClick.AddListener(StageL);
         Right.onClick.AddListener(StageR);
-
-
-        Dest.onClick.AddListener(Desty);//消えるか確認用：終わったら消す
-
-        Miru1.onClick.AddListener(Mi1);//消えるか確認用：終わったら消す
-        Miru2.onClick.AddListener(Mi2);//消えるか確認用：終わったら消す
 
     }
 
     private void StageL()
     {
+        StagePanel--;
+        //
+        if (StagePanel == SPF)
+        {
+            LeftButton.SetActive(false);
 
+        }
+
+        RightButton.SetActive(true);
+
+
+        //現在のステージ
+        stageN.text = StagePanel + "/" + NumberPanel.Length;
+
+        NumberPanel[StagePanel-1].SetActive(true);  //現在地表示
+        NumberPanel[StagePanel].SetActive(false);   //前の消す
     }
     private void StageR()
     {
-
-    }
-
-    private void Desty()//消えるか確認用：終わったら消す
-    {
-        for (int i = 0; i < NumberPanel.Length; i++)
+        StagePanel++;
+        //
+        if (StagePanel == NumberPanel.Length)
         {
-            NumberPanel[i].SetActive(false);
+            RightButton.SetActive(false);
+            
         }
 
+        LeftButton.SetActive(true);
+
+        //現在のステージ
+        stageN.text = StagePanel + "/" + NumberPanel.Length;
+
+        NumberPanel[StagePanel - 1].SetActive(true);    //現在地表示
+        NumberPanel[StagePanel - 2].SetActive(false);   //前の消す
 
     }
-
-    private void Mi1()
-    {
-        NumberPanel[0].SetActive(true);
-    }
-
-    private void Mi2()
-    {
-        NumberPanel[1].SetActive(true);
-    }
-
 
 }
 

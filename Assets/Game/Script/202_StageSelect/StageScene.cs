@@ -14,8 +14,11 @@ public class StageScene : MonoBehaviour
 
     //void Start()
     //{
-        
+
     //}
+
+    //ƒV[ƒ“ˆ—
+    #region
 
     public void PlayStage1()
     {
@@ -60,6 +63,7 @@ public class StageScene : MonoBehaviour
         SceneManager.LoadScene(scene[9]);
     }
 
+    #endregion
 
     // Update is called once per frame
 
