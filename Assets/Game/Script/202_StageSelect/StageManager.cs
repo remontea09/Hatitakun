@@ -25,7 +25,7 @@ public class StageManager : MonoBehaviour
         {
             LeftButton.SetActive(false);
         }
-        else if(StagePanel == NumberPanel.Length)
+        if(StagePanel == NumberPanel.Length)
         {
             RightButton.SetActive(false);
         }
