@@ -8,54 +8,77 @@ public class StageManager : MonoBehaviour
     [SerializeField] private Button Right;
     [SerializeField] private GameObject LeftButton;
     [SerializeField] private GameObject RightButton;
-    [SerializeField] private int StagePanel = 1;//最初に表示するステージのページ
-    [SerializeField] private TextMeshProUGUI stageN;//は矢印で増減
 
+    [SerializeField] private int StagePanel;//最初に表示するステージのページ・1からNまで入力
+    [SerializeField] private static int SPF = 1;//最初のステージのページ
 
-    [SerializeField] private GameObject NumberPanel1;//コピーして入れたいステージを増やす
+    [SerializeField] private TextMeshProUGUI stageN;//矢印で増減する文字
 
-    [SerializeField] private Button Dest;
-
-    //int Num = NumberManager.Number;
+    [SerializeField] private GameObject[] NumberPanel;//入れたいステージを増やす
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (StagePanel == 1)
+        //StagePanel = 2;
+        //矢印を消す
+        if (StagePanel == SPF)
         {
             LeftButton.SetActive(false);
         }
+        else if(StagePanel == NumberPanel.Length)
+        {
+            RightButton.SetActive(false);
+        }
 
-        Left.onClick.AddListener(StageC);
-        Right.onClick.AddListener(StageC);
+        //現在のステージ・増えたら変更
+        stageN.text = StagePanel + "/" + NumberPanel.Length;
+        //最初に表示するステージのページ
+        NumberPanel[StagePanel-1].SetActive(true);
 
-
-
-        Dest.onClick.AddListener(Desty);
-
+        Left.onClick.AddListener(StageL);
+        Right.onClick.AddListener(StageR);
 
     }
 
-    private void StageC()
+    private void StageL()
     {
+        StagePanel--;
+        //
+        if (StagePanel == SPF)
+        {
+            LeftButton.SetActive(false);
 
+        }
+
+        RightButton.SetActive(true);
+
+
+        //現在のステージ
+        stageN.text = StagePanel + "/" + NumberPanel.Length;
+
+        NumberPanel[StagePanel-1].SetActive(true);  //現在地表示
+        NumberPanel[StagePanel].SetActive(false);   //前の消す
     }
-
-    private void Desty()
+    private void StageR()
     {
-        NumberPanel1.SetActive(false);
+        StagePanel++;
+        //
+        if (StagePanel == NumberPanel.Length)
+        {
+            RightButton.SetActive(false);
+            
+        }
 
+        LeftButton.SetActive(true);
 
+        //現在のステージ
+        stageN.text = StagePanel + "/" + NumberPanel.Length;
+
+        NumberPanel[StagePanel - 1].SetActive(true);    //現在地表示
+        NumberPanel[StagePanel - 2].SetActive(false);   //前の消す
 
     }
 
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
 
 //stageの切り替え機能を作る
