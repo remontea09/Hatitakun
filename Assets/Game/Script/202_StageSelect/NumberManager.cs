@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class NumberManager : MonoBehaviour
 {
     //シーンを切り替えるには手動で書いてください
-    //ステージは1ステージ10個の想定
+    //ステージは1ステージ10個までの想定
 
     [SerializeField] private int stage = 10; //ステージの個数を決める、10まで入力可能、11以上は入力するな
-    [SerializeField] private  int Number = 1; //現在のステージを決める Number - 1
+    [SerializeField] private  int Number = 1; //現在のステージを決める Number - 1　→　1 - 1
 
     [SerializeField] private TextMeshProUGUI[] StageN = default; // 文字を入れるやつ
     [SerializeField] private GameObject[] stageButton = default; // ステージ選択ボタンの配列
@@ -21,25 +21,28 @@ public class NumberManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //ステージの番号を書くのに使う
         string[] myBox = new string[10];
 
-
-
+        //ステージの番号を書く準備
         for (int i = 0; i < stage; i++)
         {
             myBox[i] = Number + "-" + (i + 1);
         }
 
+        //要らないボタンを消す
         for (int i = 9; i >= stage; i--)
         {
             Destroy(stageButton[i]);
         }
 
+        //ステージの番号を書きます
         for (int i = 0; i < stage; i++)
         {
             StageN[i].text = myBox[i];
         }
 
+        //シーン遷移するための機能
         Button[0].onClick.AddListener(Play1);
         Button[1].onClick.AddListener(Play2);
         Button[2].onClick.AddListener(Play3);
@@ -54,7 +57,7 @@ public class NumberManager : MonoBehaviour
 
     }
 
-    //シーン遷移するため機能
+    //シーン遷移するための機能
     #region
 
     private void Play1() {
@@ -99,9 +102,4 @@ public class NumberManager : MonoBehaviour
 
     #endregion
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
