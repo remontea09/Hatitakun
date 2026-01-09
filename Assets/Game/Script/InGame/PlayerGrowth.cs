@@ -56,7 +56,7 @@ public class PlayerGrowth : MonoBehaviour
         {
             currentLevel++;
             UpdateSprout();
-            UpdatePlayerSpriteForLevel6();
+            //UpdatePlayerSpriteForLevel6();
             PlayGrowSE();
 
             if (currentLevel == GrowthLevel.Level6 && !gameOverTriggered)
@@ -69,23 +69,23 @@ public class PlayerGrowth : MonoBehaviour
     /// <summary>
     /// Lv6時にだけプレイヤー画像を左右向きに応じて変更
     /// </summary>
-    void UpdatePlayerSpriteForLevel6()
-    {
-        if (currentLevel != GrowthLevel.Level6) return;
+    //void UpdatePlayerSpriteForLevel6()
+    //{
+    //    if (currentLevel != GrowthLevel.Level6) return;
 
-        if (playerRenderer == null) return;
+    //    if (playerRenderer == null) return;
 
-        if (isFacingRight)
-        {
-            if (level6SpriteRight != null)
-                playerRenderer.sprite = level6SpriteRight;
-        }
-        else
-        {
-            if (level6SpriteLeft != null)
-                playerRenderer.sprite = level6SpriteLeft;
-        }
-    }
+    //    if (isFacingRight)
+    //    {
+    //        if (level6SpriteRight != null)
+    //            playerRenderer.sprite = level6SpriteRight;
+    //    }
+    //    else
+    //    {
+    //        if (level6SpriteLeft != null)
+    //            playerRenderer.sprite = level6SpriteLeft;
+    //    }
+    //}
 
     /// <summary>
     /// Lv6専用SE → 終わってからゲームオーバー
