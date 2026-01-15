@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 
 public enum SkinType
@@ -60,6 +61,19 @@ public class SkinService : MonoBehaviour
             case SkinType.cat: right = catRight; left = catLeft; break;
             case SkinType.hero: right = heroRight; left = heroLeft; break;
             default: right = nomalRight; left = nomalLeft; break;
+        }
+    }
+
+    public void GetSkinSprites(out Sprite sprite)
+    {
+        switch (skinType)
+        {
+            case SkinType.normal: sprite = nomalRight; break;
+            case SkinType.angel: sprite = angelRight; break;
+            case SkinType.devil: sprite = devilRight; break;
+            case SkinType.cat: sprite = catRight; break;
+            case SkinType.hero: sprite = heroRight; break;
+            default: sprite = nomalRight; break;
         }
     }
 
