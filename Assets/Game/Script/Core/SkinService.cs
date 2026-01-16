@@ -1,4 +1,7 @@
+using Mono.Cecil.Cil;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.UI;
 
 
 public enum SkinType
@@ -31,6 +34,9 @@ public class SkinService : MonoBehaviour
 
     public SkinType skinType { get; private set; }
 
+    //ステータス
+    private bool heroTakeDamage = false;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -61,6 +67,43 @@ public class SkinService : MonoBehaviour
             case SkinType.hero: right = heroRight; left = heroLeft; break;
             default: right = nomalRight; left = nomalLeft; break;
         }
+    }
+
+    public void GetSkinSprites(out Sprite sprite)
+    {
+        switch (skinType)
+        {
+            case SkinType.normal: sprite = nomalRight; break;
+            case SkinType.angel: sprite = angelRight; break;
+            case SkinType.devil: sprite = devilRight; break;
+            case SkinType.cat: sprite = catRight; break;
+            case SkinType.hero: sprite = heroRight; break;
+            default: sprite = nomalRight; break;
+        }
+    }
+
+    public bool CanHeroTakeDamage()
+    {
+        if(skinType == SkinType.hero)
+        {
+            if(heroTakeDamage != false)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public void ChangeHeroTakeDamage(bool b)
+    {
+        heroTakeDamage = b;
     }
 
 }

@@ -138,9 +138,16 @@ public class BeeEnemy : MonoBehaviour
             PlayerGrowth pg = collision.GetComponent<PlayerGrowth>();
             if (pg != null && pg.currentLevel > PlayerGrowth.GrowthLevel.Level1)
             {
-                pg.currentLevel--;
-                pg.SendMessage("UpdateSprout", SendMessageOptions.DontRequireReceiver);
-                pg.BlinkPlayer();
+                if(SkinService.Instance.CanHeroTakeDamage())
+                {
+                    pg.currentLevel--;
+                    pg.SendMessage("UpdateSprout", SendMessageOptions.DontRequireReceiver);
+                    pg.BlinkPlayer();
+                }
+                else
+                {
+                    SkinService.Instance.ChangeHeroTakeDamage(true);
+                }
 
                 hasAttacked = true;
                 state = BeeState.FlyAway;

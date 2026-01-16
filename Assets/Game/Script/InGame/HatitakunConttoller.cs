@@ -1,6 +1,7 @@
 using UnityEditor.ShaderGraph.Serialization;
 using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HatitaController : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class HatitaController : MonoBehaviour
     [SerializeField] private Rigidbody2D hatitaRig;
     [SerializeField] private Sprite rightHatita;
     [SerializeField] private Sprite leftHatita;
-
     
 
     //ステータス
@@ -25,10 +25,11 @@ public class HatitaController : MonoBehaviour
     private bool isMove = true;
 
 
-    private void Awake()
+    private void Start()
     {
         hatitaRig.gravityScale = 2f;
         SkinService.Instance.GetSkinSprites(out rightHatita, out leftHatita);
+        hatitaSprite.sprite = rightHatita;
     }
 
 
