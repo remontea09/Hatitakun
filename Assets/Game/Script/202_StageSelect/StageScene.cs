@@ -5,18 +5,12 @@ using UnityEngine.SceneManagement;
 public class StageScene : MonoBehaviour
 {
     //追加したいシーン名を書いてください
+    //アタッチした物に書いてください
+    //ここのスクリプトで名前は変えないでください
     [SerializeField] private string[] scene = { "GameScene", "GameScene", "GameScene", "GameScene", "GameScene",
-                                                "GameScene", "GameScene", "GameScene", "GameScene", "GameScene", };
-
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-    //void Start()
-    //{
-
-    //}
-
+                                                "GameScene", "GameScene", "GameScene", "GameScene", "GameScene", 
+    };
+  
     //シーン処理
     #region
 
@@ -65,6 +59,5 @@ public class StageScene : MonoBehaviour
 
     #endregion
 
-    // Update is called once per frame
 
 }

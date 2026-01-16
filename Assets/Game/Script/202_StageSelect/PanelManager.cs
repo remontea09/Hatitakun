@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StageManager : MonoBehaviour
+public class PanelManager : MonoBehaviour
 {
     [SerializeField] private Button Left;
     [SerializeField] private Button Right;
@@ -14,26 +14,27 @@ public class StageManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI stageN;//矢印で増減する文字
 
-    [SerializeField] private GameObject[] NumberPanel;//入れたいステージを増やす
+    [SerializeField] private GameObject[] NumberPanel;//表示するステージの個数
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //StagePanel = 2;
-        //矢印を消す
+
+        //端にいた場合、矢印を消す
         if (StagePanel == SPF)
         {
             LeftButton.SetActive(false);
         }
-        else if(StagePanel == NumberPanel.Length)
+        if (StagePanel == NumberPanel.Length)
         {
             RightButton.SetActive(false);
         }
 
-        //現在のステージ・増えたら変更
+        //現在の表示するステージ番号
         stageN.text = StagePanel + "/" + NumberPanel.Length;
         //最初に表示するステージのページ
-        NumberPanel[StagePanel-1].SetActive(true);
+        NumberPanel[StagePanel - 1].SetActive(true);
 
         Left.onClick.AddListener(StageL);
         Right.onClick.AddListener(StageR);
@@ -43,7 +44,7 @@ public class StageManager : MonoBehaviour
     private void StageL()
     {
         StagePanel--;
-        //
+        //端なら消す
         if (StagePanel == SPF)
         {
             LeftButton.SetActive(false);
@@ -53,25 +54,25 @@ public class StageManager : MonoBehaviour
         RightButton.SetActive(true);
 
 
-        //現在のステージ
+        //現在の表示するステージ番号
         stageN.text = StagePanel + "/" + NumberPanel.Length;
 
-        NumberPanel[StagePanel-1].SetActive(true);  //現在地表示
+        NumberPanel[StagePanel - 1].SetActive(true);  //現在地表示
         NumberPanel[StagePanel].SetActive(false);   //前の消す
     }
     private void StageR()
     {
         StagePanel++;
-        //
+        //端なら消す
         if (StagePanel == NumberPanel.Length)
         {
             RightButton.SetActive(false);
-            
+
         }
 
         LeftButton.SetActive(true);
 
-        //現在のステージ
+        //現在の表示するステージ番号
         stageN.text = StagePanel + "/" + NumberPanel.Length;
 
         NumberPanel[StagePanel - 1].SetActive(true);    //現在地表示
@@ -80,5 +81,3 @@ public class StageManager : MonoBehaviour
     }
 
 }
-
-//stageの切り替え機能を作る
