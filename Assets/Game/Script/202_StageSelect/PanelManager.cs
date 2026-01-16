@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StageManager : MonoBehaviour
+public class PanelManager : MonoBehaviour
 {
     [SerializeField] private Button Left;
     [SerializeField] private Button Right;
@@ -26,7 +26,7 @@ public class StageManager : MonoBehaviour
         {
             LeftButton.SetActive(false);
         }
-        if(StagePanel == NumberPanel.Length)
+        if (StagePanel == NumberPanel.Length)
         {
             RightButton.SetActive(false);
         }
@@ -34,7 +34,7 @@ public class StageManager : MonoBehaviour
         //現在の表示するステージ番号
         stageN.text = StagePanel + "/" + NumberPanel.Length;
         //最初に表示するステージのページ
-        NumberPanel[StagePanel-1].SetActive(true);
+        NumberPanel[StagePanel - 1].SetActive(true);
 
         Left.onClick.AddListener(StageL);
         Right.onClick.AddListener(StageR);
@@ -57,7 +57,7 @@ public class StageManager : MonoBehaviour
         //現在の表示するステージ番号
         stageN.text = StagePanel + "/" + NumberPanel.Length;
 
-        NumberPanel[StagePanel-1].SetActive(true);  //現在地表示
+        NumberPanel[StagePanel - 1].SetActive(true);  //現在地表示
         NumberPanel[StagePanel].SetActive(false);   //前の消す
     }
     private void StageR()
@@ -67,7 +67,7 @@ public class StageManager : MonoBehaviour
         if (StagePanel == NumberPanel.Length)
         {
             RightButton.SetActive(false);
-            
+
         }
 
         LeftButton.SetActive(true);

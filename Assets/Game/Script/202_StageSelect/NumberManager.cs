@@ -6,15 +6,14 @@ using UnityEngine.UI;
 
 public class NumberManager : MonoBehaviour
 {
-    //シーンを切り替えるには手動で書いてください
     //ステージは1ステージ10個までの想定
 
-    [SerializeField] private int stage = 10; //ステージの個数を決める、10まで入力可能、11以上は入力するな
     [SerializeField] private  int Number = 1; //現在のステージを決める Number - 1　→　1 - 1
+    [SerializeField][Range(0,10)] private int stage = 10; //ステージの個数を決める、10まで入力可能
 
     [SerializeField] private TextMeshProUGUI[] StageN = default; // 文字を入れるやつ
-    [SerializeField] private GameObject[] stageButton = default; // ステージ選択ボタンの配列
-    [SerializeField] private Button[] Button = default; // ステージ選択ボタンの配列
+    [SerializeField] private GameObject[] stageButton = default; // ステージボタンの配列
+    [SerializeField] private Button[] Button = default; // ボタンが反応するようになる
 
     [SerializeField] private StageScene stageScene;
 
@@ -33,7 +32,8 @@ public class NumberManager : MonoBehaviour
         //要らないボタンを消す
         for (int i = 9; i >= stage; i--)
         {
-            Destroy(stageButton[i]);
+            //Destroy(stageButton[i]);
+            stageButton[i].SetActive(false);
         }
 
         //ステージの番号を書きます
