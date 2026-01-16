@@ -334,7 +334,7 @@ MonoBehaviour:
   okaySprite: {fileID: 2370557789185266191, guid: f9e86ea7f62b3ef45957b74eac80e222, type: 3}
   goodSprite: {fileID: -8321852481229238883, guid: 55f075d96324e9e40b9bf1645635cd02, type: 3}
   greatSprite: {fileID: -392885953496041727, guid: 2926e14ad3d47a74f9ffa370177ac135, type: 3}
-  perfectSprite: {fileID: 2715025556573252194, guid: 8176857afbde3cc4998d64ff6e170415, type: 3}
+  perfectSprite: {fileID: -8269623549311794586, guid: 671bb72957ce82f438e3f8b98cc4ed38, type: 3}
   missSprite: {fileID: 0}
 --- !u!1001 &145605286
 PrefabInstance:
@@ -8482,9 +8482,9 @@ MonoBehaviour:
   - {fileID: 3308668273682644594, guid: 6dde28abfbe0f1e4cb4e33a12f4eae87, type: 3}
   - {fileID: 7947733001924420681, guid: 64ebdd67fd51d35489cf31bf9789d099, type: 3}
   - {fileID: 3849783142891272700, guid: bf0f72e6ec2865c4e9bd2854de8a49e9, type: 3}
-  - {fileID: 8534220669331618091, guid: 1e63fe436380ff44f8d5f7f53a9614e3, type: 3}
+  - {fileID: 3448865754317768401, guid: 1081f906b8bfd1f40befeaa6a9b462ff, type: 3}
   - {fileID: 3932801096266345546, guid: c1d03e03c54011847b37c3a9eeba207a, type: 3}
-  sproutSpawnPoint: {fileID: 0}
+  sproutSpawnPoint: {fileID: 1768317954}
   playerRenderer: {fileID: 2134798525}
   level6SpriteRight: {fileID: 7730772775823617291, guid: de3cfcc3a652d7e4a94535245082d2ab, type: 3}
   level6SpriteLeft: {fileID: -6087352845419803527, guid: 1a7e75f6c611f8245ac275e2b12285fd, type: 3}
