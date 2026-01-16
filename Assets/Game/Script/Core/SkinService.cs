@@ -1,5 +1,7 @@
+using Mono.Cecil.Cil;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.UI;
 
 
 public enum SkinType
@@ -31,6 +33,9 @@ public class SkinService : MonoBehaviour
     [SerializeField] private bool dontDestroyOnLoad = true;
 
     public SkinType skinType { get; private set; }
+
+    //ステータス
+    private bool heroTakeDamage = false;
 
     private void Awake()
     {
@@ -75,6 +80,30 @@ public class SkinService : MonoBehaviour
             case SkinType.hero: sprite = heroRight; break;
             default: sprite = nomalRight; break;
         }
+    }
+
+    public bool CanHeroTakeDamage()
+    {
+        if(skinType == SkinType.hero)
+        {
+            if(heroTakeDamage != false)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public void ChangeHeroTakeDamage(bool b)
+    {
+        heroTakeDamage = b;
     }
 
 }
