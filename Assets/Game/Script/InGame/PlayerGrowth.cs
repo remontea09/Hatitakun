@@ -42,8 +42,6 @@ public class PlayerGrowth : MonoBehaviour
     private Coroutine blinkCoroutine;
     private bool gameOverTriggered = false;
 
-    [SerializeField] private HatitaController hatitaController;
-
     // プレイヤーの向き（外部の移動スクリプトから更新するのがベスト）
     public bool isFacingRight = true;
 
