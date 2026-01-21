@@ -39,6 +39,8 @@ public class PlayerGrowth : MonoBehaviour
     private Coroutine blinkCoroutine;
     private bool gameOverTriggered = false;
 
+    [SerializeField] private HatitaController hatitaController;
+
     // プレイヤーの向き（外部の移動スクリプトから更新するのがベスト）
     public bool isFacingRight = true;
 
@@ -46,6 +48,7 @@ public class PlayerGrowth : MonoBehaviour
 
     void Start()
     {
+        hatitaController = this.gameObject.GetComponent<HatitaController>();
         UpdateSprout();
     }
 
@@ -58,6 +61,14 @@ public class PlayerGrowth : MonoBehaviour
             UpdateSprout();
             //UpdatePlayerSpriteForLevel6();
             PlayGrowSE();
+            if (SkinService.Instance.skinType == SkinType.angel)
+            {
+                hatitaController.UpJumpPower();
+            }
+            else if(SkinService.Instance.skinType == SkinType.devil)
+            {
+                hatitaController.DownJumpPower();
+            }
 
             if (currentLevel == GrowthLevel.Level6 && !gameOverTriggered)
             {
