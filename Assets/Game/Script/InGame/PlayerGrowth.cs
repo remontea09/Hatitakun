@@ -31,6 +31,9 @@ public class PlayerGrowth : MonoBehaviour
     public float damageBlinkDuration = 1.0f;
     public float damageBlinkInterval = 0.1f;
 
+    [Header("プレイヤー操作")]
+    [SerializeField] private HatitaController hatitaController;
+
     private Coroutine playerBlinkCoroutine;
 
     public event Action onGameEnd;
@@ -56,12 +59,20 @@ public class PlayerGrowth : MonoBehaviour
         {
             currentLevel++;
             UpdateSprout();
-            //UpdatePlayerSpriteForLevel6();
             PlayGrowSE();
 
-            if (currentLevel == GrowthLevel.Level6 && !gameOverTriggered)
+            if (currentLevel == GrowthLevel.Level6)
             {
-                StartCoroutine(Level6GameOverSequence());
+                // ★ 操作不能にする
+                if (hatitaController != null)
+                {
+                    hatitaController.ChangeIsMove(false);
+                }
+
+                if (!gameOverTriggered)
+                {
+                    StartCoroutine(Level6GameOverSequence());
+                }
             }
         }
     }
