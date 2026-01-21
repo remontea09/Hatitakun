@@ -1609,8 +1609,8 @@ MonoBehaviour:
   devilLeft: {fileID: 32289116926358440, guid: 40af4572aeb972141b3e5d507da31a33, type: 3}
   catRight: {fileID: 3054434769811492677, guid: 775a6fc8ab90a6245bb2b34041b41ec7, type: 3}
   catLeft: {fileID: 5792553159023834510, guid: 2dd765ac6b74bbe45b7f671f0ef37348, type: 3}
-  heroRight: {fileID: -7947911177514692322, guid: 0dd25fa1d189a784895819aa789946e2, type: 3}
-  heroLeft: {fileID: 6461813533379324795, guid: a083ca39282c3314aaf67fe721deef9e, type: 3}
+  heroRight: {fileID: 399156487361955210, guid: 0341939c709a05940800d12876a3ab27, type: 3}
+  heroLeft: {fileID: -1521307755499717640, guid: ea5dbdac6c105fe4fa57c943e80634a0, type: 3}
   dontDestroyOnLoad: 1
 --- !u!4 &2001932418
 Transform:
