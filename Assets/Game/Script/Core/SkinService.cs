@@ -1,6 +1,7 @@
 using Mono.Cecil.Cil;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 
@@ -86,14 +87,7 @@ public class SkinService : MonoBehaviour
     {
         if(skinType == SkinType.hero)
         {
-            if(heroTakeDamage != false)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return heroTakeDamage;
         }
         else
         {
