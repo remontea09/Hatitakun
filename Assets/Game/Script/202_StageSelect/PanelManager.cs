@@ -9,17 +9,16 @@ public class PanelManager : MonoBehaviour
     [SerializeField] private GameObject LeftButton;
     [SerializeField] private GameObject RightButton;
 
-    [SerializeField] private int StagePanel;//最初に表示するステージのページ・1からNまで入力
-    [SerializeField] private static int SPF = 1;//最初のステージのページ
+    [SerializeField][Range(1, 10)] private int StagePanel;//最初に表示するステージのページ・1からNまで入力
+    [System.NonSerialized][SerializeField] private int SPF = 1;//最初のステージのページ
 
-    [SerializeField] private TextMeshProUGUI stageN;//矢印で増減する文字
+    [SerializeField] private TextMeshProUGUI stageN;//矢印で増減するページの文字
 
-    [SerializeField] private GameObject[] NumberPanel;//表示するステージの個数
+    [SerializeField] private GameObject[] NumberPanel;//ステージをここにセットする
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //StagePanel = 2;
 
         //端にいた場合、矢印を消す
         if (StagePanel == SPF)
