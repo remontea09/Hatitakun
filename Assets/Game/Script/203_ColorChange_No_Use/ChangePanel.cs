@@ -18,6 +18,8 @@ public class ChangePanel : MonoBehaviour
     [SerializeField] private float panel_speed = 2f;
     private float t;
 
+    [SerializeField] ChangeText changeText;
+
     void Start()
     {
         panelImage = GetComponent<Image>();
@@ -40,5 +42,11 @@ public class ChangePanel : MonoBehaviour
             t += Time.deltaTime * panel_speed;
             C_Panel.sizeDelta = Vector2.Lerp(rectSize, targetSize, t);
         }
+
+        if ((panelImage.color) == Color.black)
+        {
+            changeText.Ctxet();
+        }
+
     }
 }

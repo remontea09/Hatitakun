@@ -23,6 +23,7 @@ public class ChangeButton : MonoBehaviour
     {
         ChangePanel.SetActive(true);
         BlockPanel.SetActive(true);
+        ChangeText.SetActive(true);
         changeText.Ctxet();
     }
 
