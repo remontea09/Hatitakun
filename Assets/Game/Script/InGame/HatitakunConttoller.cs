@@ -1,7 +1,5 @@
-using UnityEditor.ShaderGraph.Serialization;
-using UnityEditor.Tilemaps;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class HatitaController : MonoBehaviour
 {
