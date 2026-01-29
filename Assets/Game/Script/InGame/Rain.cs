@@ -20,6 +20,11 @@ public class Rain : MonoBehaviour
             growth.Grow();   // ê¨í∑
             Destroy(gameObject); // ÉvÉåÉCÉÑÅ[Ç…ìñÇΩÇ¡ÇΩÇÁè¡Ç¶ÇÈ
         }
+
+        if (other.CompareTag("Dead"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
 
