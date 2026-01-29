@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8684190459195502283}
   - component: {fileID: 1838861437479549630}
   m_Layer: 5
-  m_Name: Sample_NumberPanel
+  m_Name: Sample_StageNumberPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
