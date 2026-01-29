@@ -1,8 +1,4 @@
-using Mono.Cecil.Cil;
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.UI;
 
 
 public enum SkinType
