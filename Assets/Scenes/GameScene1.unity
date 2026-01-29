@@ -2785,8 +2785,8 @@ RectTransform:
   m_Children:
   - {fileID: 1982349490}
   - {fileID: 1112153954}
-  - {fileID: 2076582007}
   - {fileID: 1574828216}
+  - {fileID: 2076582007}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2809,6 +2809,14 @@ PrefabInstance:
     - target: {fileID: 155565891587990812, guid: 455db17728c4a284bb8743f547895afb, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 659738491704445790, guid: 455db17728c4a284bb8743f547895afb, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -8643192606299262989, guid: 8325da0ce2e73d445a214b178ad45078, type: 2}
+    - target: {fileID: 659738491704445790, guid: 455db17728c4a284bb8743f547895afb, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
       objectReference: {fileID: 0}
     - target: {fileID: 1784474627388011735, guid: 455db17728c4a284bb8743f547895afb, type: 3}
       propertyPath: m_AnchoredPosition.x

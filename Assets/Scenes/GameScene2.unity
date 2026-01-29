@@ -1905,6 +1905,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 919744569795215584, guid: b24b5aeb257c0b546a1f0f95c10e47c4, type: 3}
   m_PrefabInstance: {fileID: 1079656984}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1079656986 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1623536713544328244, guid: b24b5aeb257c0b546a1f0f95c10e47c4, type: 3}
+  m_PrefabInstance: {fileID: 1079656984}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1112153953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2217,7 +2228,7 @@ MonoBehaviour:
   howToPlayButton: {fileID: 1112153953}
   pauseButton: {fileID: 1982349486}
   gameOverUI: {fileID: 806481938}
-  timeText: {fileID: 0}
+  timeText: {fileID: 1079656986}
 --- !u!4 &1213503322
 Transform:
   m_ObjectHideFlags: 0
@@ -3826,10 +3837,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1079656985}
   - {fileID: 145158817}
   - {fileID: 1982349490}
   - {fileID: 1112153954}
-  - {fileID: 1079656985}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
