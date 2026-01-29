@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,7 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pauseButton;
     public GameObject gameOverUI;
 
-
+    [SerializeField] private TextMeshProUGUI timeText;
+    private float gameOverTime = 60;
 
     private void Awake()
     {
@@ -24,6 +26,22 @@ public class GameManager : MonoBehaviour
         goal.onGoal += OnGoal;
         playerGrowth.onGameEnd += GameOver;
         playerDeth.onGameOver += GameOver; 
+    }
+
+    private void Update()
+    {
+        if(gameOverTime >= 0)
+        {
+            gameOverTime -= Time.deltaTime;
+            int intTime = (int)gameOverTime;
+            string toString = intTime.ToString();
+            timeText.text = toString;
+        }
+
+        if(gameOverTime < 0)
+        {
+            playerGrowth.PlayDeadSE();
+        }
     }
 
     private void OnGoal()
