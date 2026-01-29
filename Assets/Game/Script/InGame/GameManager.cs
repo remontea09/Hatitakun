@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverUI;
 
     [SerializeField] private TextMeshProUGUI timeText;
-    private float time = 0;
+    private float gameOverTime = 60;
 
     private void Awake()
     {
@@ -30,14 +30,17 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        time += Time.deltaTime;
-        int intTime = (int)time;
-        string toString = intTime.ToString();
-        timeText.text = toString;
-
-        if(time > 60)
+        if(gameOverTime >= 0)
         {
-            GameOver();
+            gameOverTime -= Time.deltaTime;
+            int intTime = (int)gameOverTime;
+            string toString = intTime.ToString();
+            timeText.text = toString;
+        }
+
+        if(gameOverTime < 0)
+        {
+            playerGrowth.PlayDeadSE();
         }
     }
 

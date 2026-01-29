@@ -143,6 +143,12 @@ public class PlayerGrowth : MonoBehaviour
         }
     }
 
+    public void PlayDeadSE()
+    {
+        audioSource.PlayOneShot(level6SE);
+        StartCoroutine(Level6GameOverSequence());
+    }
+
     IEnumerator BlinkAnimation(GameObject obj, int blinkCount = 3, float blinkSpeed = 0.2f)
     {
         SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
