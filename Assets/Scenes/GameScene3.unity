@@ -7132,6 +7132,7 @@ MonoBehaviour:
   level6SE: {fileID: 8300000, guid: f92c282df953a99459ab71b7aaeab8ca, type: 3}
   damageBlinkDuration: 1
   damageBlinkInterval: 0.1
+  hatitaController: {fileID: 2134798530}
   isFacingRight: 1
   bgmSource: {fileID: 890155966}
 --- !u!114 &2134798532

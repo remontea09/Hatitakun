@@ -16,7 +16,7 @@ public class HatitaController : MonoBehaviour
 
     //ステータス
     private Vector2 moveSpeed = new Vector2(0.1f, 0); //移動速度
-    private float jampPower = 8f; //ジャンプのパワー
+    private float jumpPower = 8f; //ジャンプのパワー
 
     //ジャンプ可能か
     private bool isJamp = false;
@@ -30,6 +30,19 @@ public class HatitaController : MonoBehaviour
         hatitaRig.gravityScale = 2f;
         SkinService.Instance.GetSkinSprites(out rightHatita, out leftHatita);
         hatitaSprite.sprite = rightHatita;
+
+        if(SkinService.Instance.skinType == SkinType.angel)
+        {
+            jumpPower = 4f;
+        }
+        else if(SkinService.Instance.skinType == SkinType.devil)
+        {
+            jumpPower = 10f;
+        }
+        else if(SkinService.Instance.skinType == SkinType.cat)
+        {
+            moveSpeed.x += 0.1f;
+        }
     }
 
 
@@ -60,7 +73,7 @@ public class HatitaController : MonoBehaviour
                 if (!isJamp)
                 {
                     isJamp = true;
-                    hatitaRig.AddForce(Vector2.up * jampPower, ForceMode2D.Impulse);
+                    hatitaRig.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
                 }
             }
         }
@@ -79,5 +92,15 @@ public class HatitaController : MonoBehaviour
     public void ChangeIsMove(bool b)
     {
         isMove = b;
+    }
+    
+    public void UpJumpPower()
+    {
+        jumpPower += 1;
+    }
+
+    public void DownJumpPower()
+    {
+        jumpPower -= 1;
     }
 }
