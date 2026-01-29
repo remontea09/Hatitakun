@@ -1365,16 +1365,54 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7790932616325827600, guid: 6cd5ba9677bffd84999cbe322d1d4b20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 806481940}
+    - target: {fileID: 7790932616325827600, guid: 6cd5ba9677bffd84999cbe322d1d4b20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToTitle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7790932616325827600, guid: 6cd5ba9677bffd84999cbe322d1d4b20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Stage, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7790932616325827600, guid: 6cd5ba9677bffd84999cbe322d1d4b20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 193461337271950201, guid: 6cd5ba9677bffd84999cbe322d1d4b20, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7790680845775291605, guid: 6cd5ba9677bffd84999cbe322d1d4b20, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 806481940}
   m_SourcePrefab: {fileID: 100100000, guid: 6cd5ba9677bffd84999cbe322d1d4b20, type: 3}
 --- !u!1 &806481938 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7023385675818414753, guid: 6cd5ba9677bffd84999cbe322d1d4b20, type: 3}
   m_PrefabInstance: {fileID: 806481937}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &806481939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7790680845775291605, guid: 6cd5ba9677bffd84999cbe322d1d4b20, type: 3}
+  m_PrefabInstance: {fileID: 806481937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &806481940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806481939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 445e17d48e6ad47459e478c89632b19a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageSelectSceneName: StageSelectScene
 --- !u!1 &817241687
 GameObject:
   m_ObjectHideFlags: 0
