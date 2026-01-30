@@ -60,7 +60,7 @@ public class NumberManager : MonoBehaviour
 
     private void CheckClearStage()
     {
-        for(int i = 1; i < 5; i++)
+        for(int i = 1; i < ClearStageService.totalStages; i++)
         {
             if (ClearStageService.clearStageFlags[i - 1])
             {
