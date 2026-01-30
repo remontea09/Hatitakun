@@ -48,13 +48,29 @@ public class NumberManager : MonoBehaviour
         Button[2].onClick.AddListener(Play3);
         Button[3].onClick.AddListener(Play4);
         Button[4].onClick.AddListener(Play5);
-
         Button[5].onClick.AddListener(Play6);
         Button[6].onClick.AddListener(Play7);
         Button[7].onClick.AddListener(Play8);
         Button[8].onClick.AddListener(Play9);
         Button[9].onClick.AddListener(Play10);
 
+        CheckClearStage();
+
+    }
+
+    private void CheckClearStage()
+    {
+        for(int i = 1; i < 5; i++)
+        {
+            if (ClearStageService.clearStageFlags[i - 1])
+            {
+                Button[i].enabled = true;
+            }
+            else
+            {
+                Button[i].enabled = false;
+            }
+        }
     }
 
     //シーン遷移するための機能
