@@ -8,67 +8,66 @@ public class TitleLogoDon : MonoBehaviour
     public float startScale = 0.3f;
     public float targetScale = 1.2f;
     public float endScale = 1.0f;
-
     public float popTime = 0.2f;
     public float settleTime = 0.15f;
-
     public float shakeDuration = 0.25f;
     public float shakePower = 10f;
 
     Vector3 basePos;
 
-    void Start()
+    private Coroutine animCoroutine;
+
+    void OnEnable()
     {
+        // シーン切り替え後でも必ずアニメーションを再開
         IsFinished = false;
         basePos = transform.localPosition;
-        StartCoroutine(PlayAnimation());
+
+        // 既に動いている場合は停止
+        if (animCoroutine != null) StopCoroutine(animCoroutine);
+        animCoroutine = StartCoroutine(PlayAnimation());
     }
 
     IEnumerator PlayAnimation()
     {
         transform.localScale = Vector3.one * startScale;
 
-        // ドン！
         yield return ScaleTo(targetScale, popTime);
-
-        // 少し戻る
         yield return ScaleTo(endScale, settleTime);
-
-        // 揺れ
         yield return Shake();
 
         IsFinished = true;
     }
 
-    IEnumerator ScaleTo(float target, float time)
+    IEnumerator ScaleTo(float target, float duration)
     {
         Vector3 start = transform.localScale;
         Vector3 end = Vector3.one * target;
         float t = 0f;
 
-        while (t < time)
+        while (t < duration)
         {
             t += Time.deltaTime;
-            float rate = t / time;
-            transform.localScale = Vector3.Lerp(start, end, rate);
+            transform.localScale = Vector3.Lerp(start, end, t / duration);
             yield return null;
         }
-
         transform.localScale = end;
     }
 
     IEnumerator Shake()
     {
         float t = 0f;
+        Vector3 pos = transform.localPosition;
 
         while (t < shakeDuration)
         {
             t += Time.deltaTime;
-            float x = Mathf.Sin(t * 50f) * shakePower;
-            transform.localPosition = basePos + new Vector3(x, 0, 0);
+            float offsetX = Random.Range(-shakePower, shakePower);
+            float offsetY = Random.Range(-shakePower, shakePower);
+            transform.localPosition = pos + new Vector3(offsetX, offsetY, 0);
             yield return null;
         }
 
-        transform.localPosition = basePos;
+        transform.localPosition = pos;
     }
 }
