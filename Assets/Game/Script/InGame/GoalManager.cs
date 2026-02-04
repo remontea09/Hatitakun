@@ -28,7 +28,7 @@ public class GoalManager : MonoBehaviour
 
     private void Awake()
     {
-        button.onClick.AddListener(() => SceneManager.LoadScene("TitleScene"));
+        button.onClick.AddListener(() => SceneManager.LoadScene("StageSelectScene"));
         button.interactable = false;
     }
 
