@@ -72,6 +72,7 @@ public class HatitaController : MonoBehaviour
                 {
                     isJamp = true;
                     hatitaRig.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+                    this.gameObject.transform.SetParent(null, worldPositionStays: true);
                 }
             }
         }
@@ -82,6 +83,7 @@ public class HatitaController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
+            this.gameObject.transform.SetParent(collision.gameObject.transform, worldPositionStays: true);
             isJamp = false;
         }
     }
