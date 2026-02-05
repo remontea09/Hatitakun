@@ -13,7 +13,9 @@ public class NumberManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI[] StageN = default; // 文字を入れるやつ
     [SerializeField] private GameObject[] stageButton = default; // ステージボタンの配列
-    [SerializeField] private Button[] Button = default; // ボタンが反応するようになる
+    [SerializeField] private Button[] Button = default;          // ボタンが反応するようになる
+
+    [SerializeField] private Image[] Button_Image = default;     //ボタンのイメージ、色を操作します
 
     [SerializeField] private StageScene stageScene;
 
@@ -22,6 +24,11 @@ public class NumberManager : MonoBehaviour
     {
         //ステージの番号を書くのに使う
         string[] myBox = new string[10];
+
+        //for (int i = 0; i < stage; i++)
+        //{
+        //    Button_Image[i].color = new Color(1f, 1f, 1f, 1f);
+        //}
 
         //ステージの番号を書く準備
         for (int i = 0; i < stage; i++)
@@ -65,6 +72,7 @@ public class NumberManager : MonoBehaviour
             if (ClearStageService.clearStageFlags[i - 1])
             {
                 Button[i].enabled = true;
+                Button_Image[i].color = new Color(1f, 1f, 1f, 1f);  //クリアしたら非透明になる
             }
             else
             {
