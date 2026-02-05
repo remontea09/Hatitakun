@@ -2940,7 +2940,7 @@ PrefabInstance:
     - target: {fileID: 5576362652599665245, guid: 455db17728c4a284bb8743f547895afb, type: 3}
       propertyPath: perfectSprite
       value: 
-      objectReference: {fileID: 2715025556573252194, guid: 8176857afbde3cc4998d64ff6e170415, type: 3}
+      objectReference: {fileID: 7120657822558326209, guid: 50fe1492dad6e1049bc386411aaa11a5, type: 3}
     - target: {fileID: 6341818599236565864, guid: 455db17728c4a284bb8743f547895afb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
