@@ -31,9 +31,10 @@ public class ChangeImage : MonoBehaviour
         {
             0 => SkinType.normal,
             1 => SkinType.angel,
-            2=> SkinType.devil,
+            2 => SkinType.devil,
             3 => SkinType.cat,
             4 => SkinType.hero,
+            5 => SkinType.rain,
             _ => SkinType.normal,
         };
 

@@ -23,6 +23,17 @@ public class RainSpawner : MonoBehaviour
 
     private List<GameObject> rainList = new List<GameObject>();
 
+    private void Start()
+    {
+        SkinType skinType;
+        skinType = SkinService.Instance.GetSkinType();
+        if(skinType == SkinType.rain)
+        {
+            spawnInterval = 0.15f;
+            spawnRangeX = 5f;
+        }
+    }
+
     void Update()
     {
         if (!isSpawning) return;

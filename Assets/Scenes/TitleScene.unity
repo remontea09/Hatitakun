@@ -1864,6 +1864,8 @@ MonoBehaviour:
   catLeft: {fileID: 5792553159023834510, guid: 2dd765ac6b74bbe45b7f671f0ef37348, type: 3}
   heroRight: {fileID: 399156487361955210, guid: 0341939c709a05940800d12876a3ab27, type: 3}
   heroLeft: {fileID: -1521307755499717640, guid: ea5dbdac6c105fe4fa57c943e80634a0, type: 3}
+  rainRight: {fileID: 9137483915856360205, guid: 976d2ede1639d764fa245114b7428ace, type: 3}
+  rainLeft: {fileID: -4377887157588481282, guid: a10e57aa7c037324491fbf3cc595563a, type: 3}
   dontDestroyOnLoad: 1
 --- !u!4 &2001932418
 Transform:

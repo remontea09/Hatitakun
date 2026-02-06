@@ -7,7 +7,8 @@ public enum SkinType
     angel,
     devil,
     cat,
-    hero
+    hero,
+    rain
 }
 
 
@@ -24,6 +25,8 @@ public class SkinService : MonoBehaviour
     [SerializeField] private Sprite catLeft;
     [SerializeField] private Sprite heroRight;
     [SerializeField] private Sprite heroLeft;
+    [SerializeField] private Sprite rainRight;
+    [SerializeField] private Sprite rainLeft;
 
     public static SkinService Instance { get; private set; }
 
@@ -62,6 +65,7 @@ public class SkinService : MonoBehaviour
             case SkinType.devil: right = devilRight; left = devilLeft; break;
             case SkinType.cat: right = catRight; left = catLeft; break;
             case SkinType.hero: right = heroRight; left = heroLeft; break;
+            case SkinType.rain: right = rainRight; left = rainLeft; break;
             default: right = nomalRight; left = nomalLeft; break;
         }
     }
@@ -75,6 +79,7 @@ public class SkinService : MonoBehaviour
             case SkinType.devil: sprite = devilRight; break;
             case SkinType.cat: sprite = catRight; break;
             case SkinType.hero: sprite = heroRight; break;
+            case SkinType.rain: sprite = rainRight; break;
             default: sprite = nomalRight; break;
         }
     }
@@ -94,5 +99,10 @@ public class SkinService : MonoBehaviour
     public void ChangeHeroTakeDamage(bool b)
     {
         heroTakeDamage = b;
+    }
+
+    public SkinType GetSkinType()
+    {
+        return skinType; 
     }
 }
