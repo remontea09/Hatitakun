@@ -1156,8 +1156,7 @@ MonoBehaviour:
   endX: 8.2
   jumpHeight: 2
   jumpDuration: 0.25
-  jumpChance: 2.9
-  jumpCooldown: 7
+  jumpCooldown: 0
 --- !u!1 &981391875
 GameObject:
   m_ObjectHideFlags: 0
