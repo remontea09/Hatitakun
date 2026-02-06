@@ -8,14 +8,13 @@ public class NumberManager : MonoBehaviour
 {
     //ステージは1ステージ10個までの想定
 
-    [SerializeField] private  int Number = 1; //現在のステージを決める Number - 1　→　1 - 1
-    [SerializeField][Range(0,10)] private int stage = 10; //ステージの個数を決める、10まで入力可能
+    [SerializeField] private int Number = 1; //現在のステージの面を決める Number - 1　→　1 - 1
+    [SerializeField][Range(0,10)] private int stage = 10; //ステージの個数を決める、10まで入力可能 1 - stage → 1-10
 
-    [SerializeField] private TextMeshProUGUI[] StageN = default; // 文字を入れるやつ
-    [SerializeField] private GameObject[] stageButton = default; // ステージボタンの配列
-    [SerializeField] private Button[] Button = default;          // ボタンが反応するようになる
-
-    [SerializeField] private Image[] Button_Image = default;     //ボタンのイメージ、色を操作します
+    [SerializeField] private TextMeshProUGUI[] StageN = default; // 文字を入れる                
+    [SerializeField] private GameObject[] stageButton = default; // ステージボタンの配列            10個
+    [SerializeField] private Button[] Button = default;          // ボタンが反応するようになる      設定して
+    [SerializeField] private Image[] Button_Image = default;     // ボタンの色などを操作します      ください
 
     [SerializeField] private StageScene stageScene;
 
@@ -25,10 +24,6 @@ public class NumberManager : MonoBehaviour
         //ステージの番号を書くのに使う
         string[] myBox = new string[10];
 
-        //for (int i = 0; i < stage; i++)
-        //{
-        //    Button_Image[i].color = new Color(1f, 1f, 1f, 1f);
-        //}
 
         //ステージの番号を書く準備
         for (int i = 0; i < stage; i++)
@@ -36,7 +31,7 @@ public class NumberManager : MonoBehaviour
             myBox[i] = Number + "-" + (i + 1);
         }
 
-        //要らないボタンを消す
+        //要らないボタンを非表示
         for (int i = 9; i >= stage; i--)
         {
             //Destroy(stageButton[i]);
