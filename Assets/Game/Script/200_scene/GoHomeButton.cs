@@ -9,7 +9,7 @@ public class GoHomeButton : MonoBehaviour
 
     private void Awake()
     {
-        button.onClick.AddListener(() => SceneManager.LoadScene("Home"));
+        button.onClick.AddListener(() => SceneManager.LoadScene("HomeScene"));
     }
 
 }
