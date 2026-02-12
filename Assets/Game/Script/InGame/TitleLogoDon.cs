@@ -20,7 +20,6 @@ public class TitleLogoDon : MonoBehaviour
     void OnEnable()
     {
         Time.timeScale = 1f;
-
         // シーン切り替え後でも必ずアニメーションを再開
         IsFinished = false;
         basePos = transform.localPosition;
