@@ -1098,7 +1098,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.2, y: -4.6963806}
+  m_AnchoredPosition: {x: -15.45, y: -4.6963806}
   m_SizeDelta: {x: 361.8071, y: 179.1575}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &866753152
@@ -1152,12 +1152,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  startX: -12.71
+  startX: -15.45
   endX: 8.2
   jumpHeight: 2
   jumpDuration: 0.25
-  jumpChance: 2.9
-  jumpCooldown: 7
+  jumpCooldown: 0
 --- !u!1 &981391875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,6 +1864,8 @@ MonoBehaviour:
   catLeft: {fileID: 5792553159023834510, guid: 2dd765ac6b74bbe45b7f671f0ef37348, type: 3}
   heroRight: {fileID: 399156487361955210, guid: 0341939c709a05940800d12876a3ab27, type: 3}
   heroLeft: {fileID: -1521307755499717640, guid: ea5dbdac6c105fe4fa57c943e80634a0, type: 3}
+  rainRight: {fileID: 9137483915856360205, guid: 976d2ede1639d764fa245114b7428ace, type: 3}
+  rainLeft: {fileID: -4377887157588481282, guid: a10e57aa7c037324491fbf3cc595563a, type: 3}
   dontDestroyOnLoad: 1
 --- !u!4 &2001932418
 Transform:
