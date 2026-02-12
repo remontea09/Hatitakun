@@ -1640,7 +1640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7997861982340740961, guid: c0988651168687a4785773b51116d000, type: 3}
+  m_Sprite: {fileID: -3715669597049865735, guid: c3c877e22abf7f348ab2ba8335ab4af1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1903,6 +1903,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 894a174846b655842838a650231f9763, type: 3}
   - {fileID: 21300000, guid: bc6f2ce306446ee4e99f1edcb5b58f0d, type: 3}
   - {fileID: 21300000, guid: 5b6bddc739da7334ea89945b762f13d3, type: 3}
+  - {fileID: 21300000, guid: cef7d5229551fd54bba7300127c31de5, type: 3}
   explanationImage: {fileID: 1522014621}
   skinSelectButtonList:
   - {fileID: 1610432206}
@@ -1910,6 +1911,7 @@ MonoBehaviour:
   - {fileID: 296758080}
   - {fileID: 1210124125}
   - {fileID: 154402649}
+  - {fileID: 1752867202}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
