@@ -29,8 +29,8 @@ public class RainSpawner : MonoBehaviour
         skinType = SkinService.Instance.GetSkinType();
         if(skinType == SkinType.rain)
         {
-            spawnInterval = 0.15f;
-            spawnRangeX = 5f;
+            spawnInterval = 0.195f;
+            spawnRangeX = 10f;
         }
     }
 
