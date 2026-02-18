@@ -1856,12 +1856,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nomalRight: {fileID: -9088319305764910810, guid: feea2ba937beca74da6d8bec28971b81, type: 3}
   nomalLeft: {fileID: -6136802015620864947, guid: 12c5e50c63b0a7a40bc924e8d6106c2f, type: 3}
-  angelRight: {fileID: 8987055319398694453, guid: 3dd72aa020d2b674a9403faa346923e5, type: 3}
-  angelLeft: {fileID: 3258600680754764987, guid: d27ee52c6885ba44a80e7775375f4fa8, type: 3}
+  angelRight: {fileID: 8987055319398694453, guid: 2e6de38391c959c459ae9002016e674a, type: 3}
+  angelLeft: {fileID: 3258600680754764987, guid: 4d86a20b5878d5f41850e2faf07f04fb, type: 3}
   devilRight: {fileID: -2453990030796798088, guid: 91fb95e7ca2224046bdf4e65ace67a56, type: 3}
   devilLeft: {fileID: 32289116926358440, guid: 40af4572aeb972141b3e5d507da31a33, type: 3}
-  catRight: {fileID: 3054434769811492677, guid: 775a6fc8ab90a6245bb2b34041b41ec7, type: 3}
-  catLeft: {fileID: 5792553159023834510, guid: 2dd765ac6b74bbe45b7f671f0ef37348, type: 3}
+  catRight: {fileID: 3054434769811492677, guid: cb84f7ba870295f4da5593a15ff484c1, type: 3}
+  catLeft: {fileID: 5792553159023834510, guid: 3ba3ad1775ee76d4e91a94e47f6ede62, type: 3}
   heroRight: {fileID: 399156487361955210, guid: 0341939c709a05940800d12876a3ab27, type: 3}
   heroLeft: {fileID: -1521307755499717640, guid: ea5dbdac6c105fe4fa57c943e80634a0, type: 3}
   rainRight: {fileID: 9137483915856360205, guid: 976d2ede1639d764fa245114b7428ace, type: 3}
