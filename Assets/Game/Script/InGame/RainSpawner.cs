@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections.Generic; // Listを使うため
+using System.Collections.Generic;
 
 public class RainSpawner : MonoBehaviour
 {
@@ -7,7 +7,7 @@ public class RainSpawner : MonoBehaviour
     public GameObject rainPrefab;
 
     [Header("生成範囲（X方向の幅）")]
-    public float spawnRangeX = 8f;
+    public float spawnRangeX = 4f; // プレイヤーの周りの幅
 
     [Header("雨の生成間隔")]
     public float spawnInterval = 0.2f;
@@ -15,15 +15,29 @@ public class RainSpawner : MonoBehaviour
     [Header("雨の落ちる高さ")]
     public float spawnHeight = 6f;
 
+    [Header("プレイヤー参照（Inspectorで割り当て）")]
+    public Transform player;
+
     private float timer = 0f;
     private bool isSpawning = true;
 
-    // 生成した雨を管理するリスト
     private List<GameObject> rainList = new List<GameObject>();
+
+    private void Start()
+    {
+        SkinType skinType;
+        skinType = SkinService.Instance.GetSkinType();
+        if(skinType == SkinType.rain)
+        {
+            spawnInterval = 0.195f;
+            spawnRangeX = 10f;
+        }
+    }
 
     void Update()
     {
         if (!isSpawning) return;
+        if (player == null) return; // プレイヤー未設定なら何もしない
 
         timer += Time.deltaTime;
 
@@ -36,26 +50,24 @@ public class RainSpawner : MonoBehaviour
 
     void SpawnRain()
     {
+        // プレイヤー位置を基準にランダムXを生成
         float randomX = Random.Range(-spawnRangeX, spawnRangeX);
-        Vector3 spawnPos = new Vector3(randomX, spawnHeight, 0);
+        Vector3 spawnPos = new Vector3(player.position.x + randomX, player.position.y + spawnHeight, 0);
+
         GameObject rain = Instantiate(rainPrefab, spawnPos, Quaternion.identity);
 
-        // 生成した雨をリストに追加
         rainList.Add(rain);
     }
 
-    // 雨の生成を止める + すでにある雨も削除
     public void StopSpawning()
     {
         isSpawning = false;
 
-        // すでに生成されている雨を全部削除
         foreach (GameObject rain in rainList)
         {
             if (rain != null) Destroy(rain);
         }
 
-        // リストもクリア
         rainList.Clear();
     }
 }

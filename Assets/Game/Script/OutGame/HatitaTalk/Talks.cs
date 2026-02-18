@@ -11,7 +11,7 @@ public class Talks
     public IEnumerator Story1(TextMeshProUGUI text, GameObject messageWindow)
     {
         messageWindow.gameObject.SetActive(true);
-        text.text = "僕ははちたくん。よろしくね！";
+        text.text = "僕ははち田くん。よろしくね！";
         yield return new WaitForSeconds(3);
         messageWindow.gameObject.SetActive(false);
         EndRead?.Invoke();

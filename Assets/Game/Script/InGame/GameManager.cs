@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,15 +15,38 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pauseButton;
     public GameObject gameOverUI;
 
+    [SerializeField] private TextMeshProUGUI timeText;
+    private float gameOverTime = 60;
 
+    private int stageNumber;
 
     private void Awake()
     {
+        Time.timeScale = 1f;
         Application.targetFrameRate = 60;
+
+        TryGetStageNoFromSceneName(out stageNumber);
+
         goalPanel.SetActive(false);
         goal.onGoal += OnGoal;
         playerGrowth.onGameEnd += GameOver;
         playerDeth.onGameOver += GameOver; 
+    }
+
+    private void Update()
+    {
+        if(gameOverTime >= 0)
+        {
+            gameOverTime -= Time.deltaTime;
+            int intTime = (int)gameOverTime;
+            string toString = intTime.ToString();
+            timeText.text = toString;
+        }
+
+        if(gameOverTime < 0)
+        {
+            playerGrowth.PlayDeadSE();
+        }
     }
 
     private void OnGoal()
@@ -33,6 +57,7 @@ public class GameManager : MonoBehaviour
         goalManager.OnClear(level);
         howToPlayButton.SetActive(false);
         pauseButton.SetActive(false);
+        ClearStageService.SetClearScene(stageNumber - 1);
     }
 
     public void GameOver()
@@ -50,4 +75,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    private bool TryGetStageNoFromSceneName(out int stageNo)
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        stageNo = -1;
+
+        if (!sceneName.StartsWith("GameScene")) return false;
+
+        string numberPart = sceneName.Substring("GameScene".Length);
+        return int.TryParse(numberPart, out stageNo) && stageNo >= 1;
+    }
 }

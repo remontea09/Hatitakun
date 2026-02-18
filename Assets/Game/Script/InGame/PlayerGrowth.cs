@@ -27,6 +27,15 @@ public class PlayerGrowth : MonoBehaviour
     public AudioClip growSE;
     public AudioClip level6SE;
 
+    [Header("ダメージ時点滅")]
+    public float damageBlinkDuration = 1.0f;
+    public float damageBlinkInterval = 0.1f;
+
+    [Header("プレイヤー操作")]
+    [SerializeField] private HatitaController hatitaController;
+
+    private Coroutine playerBlinkCoroutine;
+
     public event Action onGameEnd;
 
     private GameObject currentSprout;
@@ -36,8 +45,11 @@ public class PlayerGrowth : MonoBehaviour
     // プレイヤーの向き（外部の移動スクリプトから更新するのがベスト）
     public bool isFacingRight = true;
 
+    [SerializeField] private AudioSource bgmSource;
+
     void Start()
     {
+        hatitaController = this.gameObject.GetComponent<HatitaController>();
         UpdateSprout();
     }
 
@@ -48,12 +60,28 @@ public class PlayerGrowth : MonoBehaviour
         {
             currentLevel++;
             UpdateSprout();
-            UpdatePlayerSpriteForLevel6();
             PlayGrowSE();
-
-            if (currentLevel == GrowthLevel.Level6 && !gameOverTriggered)
+            if (SkinService.Instance.skinType == SkinType.angel)
             {
-                StartCoroutine(Level6GameOverSequence());
+                hatitaController.UpJumpPower();
+            }
+            else if(SkinService.Instance.skinType == SkinType.devil)
+            {
+                hatitaController.DownJumpPower();
+            }
+
+            if (currentLevel == GrowthLevel.Level6)
+            {
+                // ★ 操作不能にする
+                if (hatitaController != null)
+                {
+                    hatitaController.ChangeIsMove(false);
+                }
+
+                if (!gameOverTriggered)
+                {
+                    StartCoroutine(Level6GameOverSequence());
+                }
             }
         }
     }
@@ -61,23 +89,23 @@ public class PlayerGrowth : MonoBehaviour
     /// <summary>
     /// Lv6時にだけプレイヤー画像を左右向きに応じて変更
     /// </summary>
-    void UpdatePlayerSpriteForLevel6()
-    {
-        if (currentLevel != GrowthLevel.Level6) return;
+    //void UpdatePlayerSpriteForLevel6()
+    //{
+    //    if (currentLevel != GrowthLevel.Level6) return;
 
-        if (playerRenderer == null) return;
+    //    if (playerRenderer == null) return;
 
-        if (isFacingRight)
-        {
-            if (level6SpriteRight != null)
-                playerRenderer.sprite = level6SpriteRight;
-        }
-        else
-        {
-            if (level6SpriteLeft != null)
-                playerRenderer.sprite = level6SpriteLeft;
-        }
-    }
+    //    if (isFacingRight)
+    //    {
+    //        if (level6SpriteRight != null)
+    //            playerRenderer.sprite = level6SpriteRight;
+    //    }
+    //    else
+    //    {
+    //        if (level6SpriteLeft != null)
+    //            playerRenderer.sprite = level6SpriteLeft;
+    //    }
+    //}
 
     /// <summary>
     /// Lv6専用SE → 終わってからゲームオーバー
@@ -86,11 +114,18 @@ public class PlayerGrowth : MonoBehaviour
     {
         gameOverTriggered = true;
 
+        // BGMを止める
+        if (bgmSource != null)
+        {
+            bgmSource.Stop();
+        }
+
         float waitTime = (level6SE != null) ? level6SE.length : 0f;
         yield return new WaitForSeconds(waitTime);
 
         onGameEnd?.Invoke();
     }
+
 
     void PlayGrowSE()
     {
@@ -106,6 +141,12 @@ public class PlayerGrowth : MonoBehaviour
             if (growSE != null)
                 audioSource.PlayOneShot(growSE);
         }
+    }
+
+    public void PlayDeadSE()
+    {
+        audioSource.PlayOneShot(level6SE);
+        StartCoroutine(Level6GameOverSequence());
     }
 
     IEnumerator BlinkAnimation(GameObject obj, int blinkCount = 3, float blinkSpeed = 0.2f)
@@ -153,5 +194,33 @@ public class PlayerGrowth : MonoBehaviour
     public int CastLevelToInt()
     {
         return Mathf.Clamp((int)currentLevel + 1, 1, 6);
+    }
+
+    public void BlinkPlayer()
+    {
+        if (playerRenderer == null) return;
+
+        if (playerBlinkCoroutine != null)
+            StopCoroutine(playerBlinkCoroutine);
+
+        playerBlinkCoroutine = StartCoroutine(PlayerBlinkCoroutine());
+    }
+
+    IEnumerator PlayerBlinkCoroutine()
+    {
+        float timer = 0f;
+
+        while (timer < damageBlinkDuration)
+        {
+            playerRenderer.enabled = false;
+            yield return new WaitForSeconds(damageBlinkInterval);
+
+            playerRenderer.enabled = true;
+            yield return new WaitForSeconds(damageBlinkInterval);
+
+            timer += damageBlinkInterval * 2f;
+        }
+
+        playerRenderer.enabled = true;
     }
 }

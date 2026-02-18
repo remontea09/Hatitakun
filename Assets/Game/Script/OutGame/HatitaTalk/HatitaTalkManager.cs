@@ -8,6 +8,7 @@ public class HatitaTalkManager : MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private GameObject messageWindow;
+    [SerializeField] private Image hatitaImage;
 
     private Talks talks;
 
@@ -19,6 +20,10 @@ public class HatitaTalkManager : MonoBehaviour
         messageWindow.gameObject.SetActive(false);
         talks = new Talks();
         talks.EndRead += SetFalseTalking;
+        Sprite sprite = null;
+        SkinService.Instance.GetSkinSprites(out sprite);
+        hatitaImage.sprite = sprite;
+
     }
 
     private void StartTalk()
