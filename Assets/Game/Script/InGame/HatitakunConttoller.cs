@@ -13,7 +13,7 @@ public class HatitaController : MonoBehaviour
     
 
     //ステータス
-    private Vector2 moveSpeed = new Vector2(0.1f, 0); //移動速度
+    private Vector2 moveSpeed = new Vector2(8f, 0); //移動速度
     private float jumpPower = 8f; //ジャンプのパワー
 
     //ジャンプ可能か
@@ -39,7 +39,7 @@ public class HatitaController : MonoBehaviour
         }
         else if(SkinService.Instance.skinType == SkinType.cat)
         {
-            moveSpeed.x += 0.1f;
+            moveSpeed.x += 1f;
         }
     }
 
@@ -53,7 +53,7 @@ public class HatitaController : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 Vector2 transform = hatitakun.transform.position;
-                transform -= moveSpeed;
+                transform -= moveSpeed * Time.deltaTime;
                 hatitakun.transform.position = transform;
                 hatitaSprite.sprite = leftHatita;
             }
@@ -61,7 +61,7 @@ public class HatitaController : MonoBehaviour
             if (Input.GetKey(KeyCode.RightArrow))
             {
                 Vector2 transform = hatitakun.transform.position;
-                transform += moveSpeed;
+                transform += moveSpeed * Time.deltaTime;
                 hatitakun.transform.position = transform;
                 hatitaSprite.sprite = rightHatita;
             }
